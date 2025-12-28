@@ -1,4 +1,4 @@
-//! Build the core structures.
+//! Builder executable to generate the Directus database code.
 use std::path::Path;
 mod config;
 use config::Config;
@@ -29,13 +29,14 @@ pub fn main() {
     let task = Task::new("DB Introspection");
     let db: PgDieselDatabase = PgDieselDatabaseBuilder::default()
         .connection(&mut conn)
+        .schema("public")
         .catalog(config.database_name())
         .try_into()
         .expect("Failed to build database");
     tracker.add_completed_task(task);
 
     // We write to the target directory the generated structs
-    let Some(curation_data) = db.table(None, "Curation_Data") else {
+    let Some(curation_data) = db.table(Some("public"), "Curation_Data") else {
         eprintln!("The table 'Curation_Data' was not found in the database.");
         eprintln!(
             "Please ensure the database is correctly set up and contains the required tables."
@@ -55,6 +56,9 @@ pub fn main() {
 
     // We print the report
     Report::new(tracker)
-        .write(Path::new("TIME_REQUIREMENTS.md"), Path::new("TIME_REQUIREMENTS.png"))
+        .write(
+            Path::new("TIME_REQUIREMENTS.md"),
+            Path::new("TIME_REQUIREMENTS.png"),
+        )
         .unwrap();
 }
