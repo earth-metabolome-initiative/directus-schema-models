@@ -1,0 +1,45 @@
+---
+config:
+  layout: elk
+---
+flowchart TB
+    aliquoting_data["aliquoting_data"] --> containers["containers"] & directus_users["directus_users"] & si_units["si_units"]
+    batch_types["batch_types"] --> directus_users
+    batches["batches"] --> batch_types & directus_users
+    brands["brands"] --> directus_users
+    buildings["buildings"] --> directus_users & universities["universities"]
+    container_models["container_models"] --> brands & container_types["container_types"] & directus_users & si_units
+    container_rules["container_rules"] --> container_models & directus_users
+    container_types --> directus_users
+    containers --> container_models & directus_users & universities
+    directus_access["directus_access"] --> directus_policies["directus_policies"] & directus_roles["directus_roles"] & directus_users
+    directus_comments["directus_comments"] --> directus_users
+    directus_dashboards["directus_dashboards"] --> directus_users
+    directus_files["directus_files"] --> directus_folders["directus_folders"] & directus_users
+    directus_flows["directus_flows"] --> directus_users
+    directus_notifications["directus_notifications"] --> directus_users
+    directus_operations["directus_operations"] --> directus_flows & directus_users
+    directus_panels["directus_panels"] --> directus_dashboards & directus_users
+    directus_permissions["directus_permissions"] --> directus_policies
+    directus_presets["directus_presets"] --> directus_roles & directus_users
+    directus_revisions["directus_revisions"] --> directus_activity["directus_activity"] & directus_versions["directus_versions"]
+    directus_sessions["directus_sessions"] --> directus_shares["directus_shares"] & directus_users
+    directus_settings["directus_settings"] --> directus_files & directus_folders & directus_roles
+    directus_shares --> directus_collections["directus_collections"] & directus_roles & directus_users
+    directus_users --> directus_roles
+    directus_versions --> directus_collections & directus_users
+    directus_webhooks["directus_webhooks"] --> directus_flows
+    dried_samples_data["dried_samples_data"] --> batches & containers & directus_users & field_data["field_data"]
+    extraction_data["extraction_data"] --> batches & container_models & containers & directus_users & extraction_methods["extraction_methods"] & si_units
+    extraction_methods --> directus_users
+    field_data --> directus_users
+    injection_methods["injection_methods"] --> directus_users
+    instrument_models["instrument_models"] --> brands & directus_users & instrument_types["instrument_types"]
+    instrument_types --> directus_users
+    instruments["instruments"] --> directus_users & instrument_models & rooms["rooms"]
+    ms_data["ms_data"] --> batches & containers & directus_users & injection_methods & instruments & si_units
+    projects["projects"] --> batches & directus_users
+    rooms --> addresses["addresses"] & buildings & directus_users
+    si_units --> directus_users
+    specimens["specimens"] --> directus_users
+    universities --> directus_users

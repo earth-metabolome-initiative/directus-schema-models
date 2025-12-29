@@ -1,0 +1,19 @@
+[package]
+name = "emi_deprecated_models-directus_settings"
+version = "0.1.0"
+edition.workspace = true
+
+
+[dependencies]
+serde.workspace = true
+diesel-builders.workspace = true
+diesel.workspace = true
+validation_errors.workspace = true
+rosetta_uuid.workspace = true
+serde_json.workspace = true
+emi_deprecated_models-directus_files.workspace = true
+emi_deprecated_models-directus_folders.workspace = true
+emi_deprecated_models-directus_roles.workspace = true
+
+[lints]
+workspace = true

@@ -1,0 +1,159 @@
+[workspace]
+resolver = "2"
+members = [
+  "emi_deprecated_models/emi_deprecated_models-addresses",
+  "emi_deprecated_models/emi_deprecated_models-aliquoting_data",
+  "emi_deprecated_models/emi_deprecated_models-batch_types",
+  "emi_deprecated_models/emi_deprecated_models-batches",
+  "emi_deprecated_models/emi_deprecated_models-brands",
+  "emi_deprecated_models/emi_deprecated_models-buildings",
+  "emi_deprecated_models/emi_deprecated_models-container_models",
+  "emi_deprecated_models/emi_deprecated_models-container_rules",
+  "emi_deprecated_models/emi_deprecated_models-container_types",
+  "emi_deprecated_models/emi_deprecated_models-containers",
+  "emi_deprecated_models/emi_deprecated_models-dried_samples_data",
+  "emi_deprecated_models/emi_deprecated_models-extraction_data",
+  "emi_deprecated_models/emi_deprecated_models-extraction_methods",
+  "emi_deprecated_models/emi_deprecated_models-field_data",
+  "emi_deprecated_models/emi_deprecated_models-injection_methods",
+  "emi_deprecated_models/emi_deprecated_models-instrument_models",
+  "emi_deprecated_models/emi_deprecated_models-instrument_types",
+  "emi_deprecated_models/emi_deprecated_models-instruments",
+  "emi_deprecated_models/emi_deprecated_models-ms_data",
+  "emi_deprecated_models/emi_deprecated_models-projects",
+  "emi_deprecated_models/emi_deprecated_models-rooms",
+  "emi_deprecated_models/emi_deprecated_models-si_units",
+  "emi_deprecated_models/emi_deprecated_models-specimens",
+  "emi_deprecated_models/emi_deprecated_models-universities",
+  "emi_deprecated_models/emi_deprecated_models-directus_access",
+  "emi_deprecated_models/emi_deprecated_models-directus_activity",
+  "emi_deprecated_models/emi_deprecated_models-directus_collections",
+  "emi_deprecated_models/emi_deprecated_models-directus_comments",
+  "emi_deprecated_models/emi_deprecated_models-directus_dashboards",
+  "emi_deprecated_models/emi_deprecated_models-directus_extensions",
+  "emi_deprecated_models/emi_deprecated_models-directus_fields",
+  "emi_deprecated_models/emi_deprecated_models-directus_files",
+  "emi_deprecated_models/emi_deprecated_models-directus_flows",
+  "emi_deprecated_models/emi_deprecated_models-directus_folders",
+  "emi_deprecated_models/emi_deprecated_models-directus_migrations",
+  "emi_deprecated_models/emi_deprecated_models-directus_notifications",
+  "emi_deprecated_models/emi_deprecated_models-directus_operations",
+  "emi_deprecated_models/emi_deprecated_models-directus_panels",
+  "emi_deprecated_models/emi_deprecated_models-directus_permissions",
+  "emi_deprecated_models/emi_deprecated_models-directus_policies",
+  "emi_deprecated_models/emi_deprecated_models-directus_presets",
+  "emi_deprecated_models/emi_deprecated_models-directus_relations",
+  "emi_deprecated_models/emi_deprecated_models-directus_revisions",
+  "emi_deprecated_models/emi_deprecated_models-directus_roles",
+  "emi_deprecated_models/emi_deprecated_models-directus_sessions",
+  "emi_deprecated_models/emi_deprecated_models-directus_settings",
+  "emi_deprecated_models/emi_deprecated_models-directus_shares",
+  "emi_deprecated_models/emi_deprecated_models-directus_translations",
+  "emi_deprecated_models/emi_deprecated_models-directus_users",
+  "emi_deprecated_models/emi_deprecated_models-directus_versions",
+  "emi_deprecated_models/emi_deprecated_models-directus_webhooks",
+  "emi_deprecated_models/emi_deprecated_models-spatial_ref_sys",
+]
+
+[workspace.package]
+edition = "2024"
+
+[workspace.dependencies]
+emi_deprecated_models-addresses = { path = "emi_deprecated_models/emi_deprecated_models-addresses" }
+emi_deprecated_models-aliquoting_data = { path = "emi_deprecated_models/emi_deprecated_models-aliquoting_data" }
+emi_deprecated_models-batch_types = { path = "emi_deprecated_models/emi_deprecated_models-batch_types" }
+emi_deprecated_models-batches = { path = "emi_deprecated_models/emi_deprecated_models-batches" }
+emi_deprecated_models-brands = { path = "emi_deprecated_models/emi_deprecated_models-brands" }
+emi_deprecated_models-buildings = { path = "emi_deprecated_models/emi_deprecated_models-buildings" }
+emi_deprecated_models-container_models = { path = "emi_deprecated_models/emi_deprecated_models-container_models" }
+emi_deprecated_models-container_rules = { path = "emi_deprecated_models/emi_deprecated_models-container_rules" }
+emi_deprecated_models-container_types = { path = "emi_deprecated_models/emi_deprecated_models-container_types" }
+emi_deprecated_models-containers = { path = "emi_deprecated_models/emi_deprecated_models-containers" }
+emi_deprecated_models-dried_samples_data = { path = "emi_deprecated_models/emi_deprecated_models-dried_samples_data" }
+emi_deprecated_models-extraction_data = { path = "emi_deprecated_models/emi_deprecated_models-extraction_data" }
+emi_deprecated_models-extraction_methods = { path = "emi_deprecated_models/emi_deprecated_models-extraction_methods" }
+emi_deprecated_models-field_data = { path = "emi_deprecated_models/emi_deprecated_models-field_data" }
+emi_deprecated_models-injection_methods = { path = "emi_deprecated_models/emi_deprecated_models-injection_methods" }
+emi_deprecated_models-instrument_models = { path = "emi_deprecated_models/emi_deprecated_models-instrument_models" }
+emi_deprecated_models-instrument_types = { path = "emi_deprecated_models/emi_deprecated_models-instrument_types" }
+emi_deprecated_models-instruments = { path = "emi_deprecated_models/emi_deprecated_models-instruments" }
+emi_deprecated_models-ms_data = { path = "emi_deprecated_models/emi_deprecated_models-ms_data" }
+emi_deprecated_models-projects = { path = "emi_deprecated_models/emi_deprecated_models-projects" }
+emi_deprecated_models-rooms = { path = "emi_deprecated_models/emi_deprecated_models-rooms" }
+emi_deprecated_models-si_units = { path = "emi_deprecated_models/emi_deprecated_models-si_units" }
+emi_deprecated_models-specimens = { path = "emi_deprecated_models/emi_deprecated_models-specimens" }
+emi_deprecated_models-universities = { path = "emi_deprecated_models/emi_deprecated_models-universities" }
+emi_deprecated_models-directus_access = { path = "emi_deprecated_models/emi_deprecated_models-directus_access" }
+emi_deprecated_models-directus_activity = { path = "emi_deprecated_models/emi_deprecated_models-directus_activity" }
+emi_deprecated_models-directus_collections = { path = "emi_deprecated_models/emi_deprecated_models-directus_collections" }
+emi_deprecated_models-directus_comments = { path = "emi_deprecated_models/emi_deprecated_models-directus_comments" }
+emi_deprecated_models-directus_dashboards = { path = "emi_deprecated_models/emi_deprecated_models-directus_dashboards" }
+emi_deprecated_models-directus_extensions = { path = "emi_deprecated_models/emi_deprecated_models-directus_extensions" }
+emi_deprecated_models-directus_fields = { path = "emi_deprecated_models/emi_deprecated_models-directus_fields" }
+emi_deprecated_models-directus_files = { path = "emi_deprecated_models/emi_deprecated_models-directus_files" }
+emi_deprecated_models-directus_flows = { path = "emi_deprecated_models/emi_deprecated_models-directus_flows" }
+emi_deprecated_models-directus_folders = { path = "emi_deprecated_models/emi_deprecated_models-directus_folders" }
+emi_deprecated_models-directus_migrations = { path = "emi_deprecated_models/emi_deprecated_models-directus_migrations" }
+emi_deprecated_models-directus_notifications = { path = "emi_deprecated_models/emi_deprecated_models-directus_notifications" }
+emi_deprecated_models-directus_operations = { path = "emi_deprecated_models/emi_deprecated_models-directus_operations" }
+emi_deprecated_models-directus_panels = { path = "emi_deprecated_models/emi_deprecated_models-directus_panels" }
+emi_deprecated_models-directus_permissions = { path = "emi_deprecated_models/emi_deprecated_models-directus_permissions" }
+emi_deprecated_models-directus_policies = { path = "emi_deprecated_models/emi_deprecated_models-directus_policies" }
+emi_deprecated_models-directus_presets = { path = "emi_deprecated_models/emi_deprecated_models-directus_presets" }
+emi_deprecated_models-directus_relations = { path = "emi_deprecated_models/emi_deprecated_models-directus_relations" }
+emi_deprecated_models-directus_revisions = { path = "emi_deprecated_models/emi_deprecated_models-directus_revisions" }
+emi_deprecated_models-directus_roles = { path = "emi_deprecated_models/emi_deprecated_models-directus_roles" }
+emi_deprecated_models-directus_sessions = { path = "emi_deprecated_models/emi_deprecated_models-directus_sessions" }
+emi_deprecated_models-directus_settings = { path = "emi_deprecated_models/emi_deprecated_models-directus_settings" }
+emi_deprecated_models-directus_shares = { path = "emi_deprecated_models/emi_deprecated_models-directus_shares" }
+emi_deprecated_models-directus_translations = { path = "emi_deprecated_models/emi_deprecated_models-directus_translations" }
+emi_deprecated_models-directus_users = { path = "emi_deprecated_models/emi_deprecated_models-directus_users" }
+emi_deprecated_models-directus_versions = { path = "emi_deprecated_models/emi_deprecated_models-directus_versions" }
+emi_deprecated_models-directus_webhooks = { path = "emi_deprecated_models/emi_deprecated_models-directus_webhooks" }
+emi_deprecated_models-spatial_ref_sys = { path = "emi_deprecated_models/emi_deprecated_models-spatial_ref_sys" }
+rosetta_timestamp = { git = "https://github.com/earth-metabolome-initiative/emi-monorepo", branch = "postgres-crate", features = [
+  "diesel",
+  "serde",
+] }
+chrono = { version = "0.4.42" }
+pgrx_validation = { git = "https://github.com/earth-metabolome-initiative/emi-monorepo", branch = "postgres-crate" }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = { version = "1.0" }
+validation_errors = { git = "https://github.com/earth-metabolome-initiative/emi-monorepo", branch = "postgres-crate" }
+postgis_diesel = { git = "https://github.com/LucaCappelletti94/postgis-diesel", branch = "master", features = [
+  "serde",
+  "diesel",
+  "postgres",
+  "sqlite",
+] }
+diesel = { git = "https://github.com/LucaCappelletti94/diesel", branch = "future3", features = [
+  "extras",
+  "64-column-tables",
+] }
+diesel-builders = { git = "https://github.com/LucaCappelletti94/diesel-builders", branch = "main", features = [
+  "size-64",
+] }
+rosetta_uuid = { git = "https://github.com/earth-metabolome-initiative/emi-monorepo", branch = "postgres-crate", features = [
+  "diesel",
+  "serde",
+] }
+
+[workspace.lints.rust]
+missing_docs = "forbid"
+unused_macro_rules = "forbid"
+unused_doc_comments = "forbid"
+unconditional_recursion = "forbid"
+unreachable_patterns = "forbid"
+unused_import_braces = "forbid"
+unused_must_use = "forbid"
+deprecated = "deny"
+
+[workspace.lints.rustdoc]
+broken_intra_doc_links = "forbid"
+bare_urls = "forbid"
+invalid_codeblock_attributes = "forbid"
+invalid_html_tags = "forbid"
+missing_crate_level_docs = "forbid"
+unescaped_backticks = "forbid"
+redundant_explicit_links = "forbid"
+invalid_rust_codeblocks = "forbid"

@@ -22,10 +22,10 @@ pub struct Config {
 }
 
 impl Config {
-	/// Get the name of the database.
-	pub fn database_name(&self) -> &str {
-		&self.database_name
-	}
+    /// Get the name of the database.
+    pub fn database_name(&self) -> &str {
+        &self.database_name
+    }
 }
 
 impl TryFrom<&Path> for Config {
@@ -49,13 +49,13 @@ impl TryFrom<&str> for Config {
 impl Display for Config {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(
-			f,
-			"postgres://{}:{}@{}:{}/{}",
-			self.database_user,
-			self.database_password,
-			self.hostname,
-			self.database_port,
-			self.database_name
-		)
+            f,
+            "postgres://{}:{}@{}:{}/{}",
+            self.database_user,
+            self.database_password,
+            self.hostname,
+            self.database_port,
+            self.database_name
+        )
     }
 }

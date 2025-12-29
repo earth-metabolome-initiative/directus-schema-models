@@ -1,2 +1,70 @@
-# directus-schema-models
-SynQL-generated models for the directus schema
+# Directus Schema Models (EMI)
+
+[![CI](https://github.com/earth-metabolome-initiative/directus-schema-models/workflows/Rust%20CI/badge.svg)](https://github.com/earth-metabolome-initiative/directus-schema-models/actions)
+[![Security Audit](https://github.com/earth-metabolome-initiative/directus-schema-models/workflows/Security%20Audit/badge.svg)](https://github.com/earth-metabolome-initiative/directus-schema-models/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+This repository contains the Rust models generated from the legacy Directus database schema used by the Earth Metabolome Initiative (EMI). These models are primarily used to facilitate the migration of data from the deprecated Directus system to our new architecture.
+
+Additionally, this project serves as a proof of concept for [`synql`](https://github.com/earth-metabolome-initiative/synql), our library designed to generate strongly-typed Rust models from various SQL backends (PostgreSQL, raw SQL documents, etc.).
+
+## Repository Structure
+
+- **`builder/`**: Contains the Rust application that connects to the database, introspects the schema, and generates the model code.
+- **`emi_deprecated_models/`**: The output directory containing the generated Rust crates for the database schema.
+
+![Workspace Visualization](./workspace.svg)
+
+## Prerequisites
+
+To build and run the generator, ensure you have the following installed:
+
+- **[Rust & Cargo](https://www.rust-lang.org/tools/install)**: The Rust programming language and package manager.
+- **[Taplo](https://taplo.tamasfe.dev/cli/installation.html)**: A TOML formatter used to format the generated `Cargo.toml` files.
+
+  ```bash
+  cargo install taplo-cli --locked
+  ```
+
+- **Access to the Directus Database**: The builder requires a connection to the running PostgreSQL instance containing the Directus schema.
+
+## Setup and Usage
+
+1. **Clone the repository:**
+
+    ```bash
+    git clone https://github.com/earth-metabolome-initiative/directus-schema-models
+    cd directus-schema-models
+    ```
+
+2. **Configure the Builder:**
+    Navigate to the `builder` directory and create a configuration file.
+
+    ```bash
+    cd builder
+    cp config.toml.example config.toml
+    ```
+
+    Edit `config.toml` with the appropriate database connection details.
+
+3. **Run the Builder:**
+    Execute the builder to generate the models.
+
+    ```bash
+    cargo run --release
+    ```
+
+    The process involves:
+    - Connecting to the database.
+    - Introspecting the schema.
+    - Generating Rust code in the `emi_deprecated_models` directory.
+    - Formatting the code using `rustfmt` and `taplo`.
+
+## Performance
+
+One of the key goals of `synql` is speed. Below are the performance metrics for this project. Note that the lion's share of the compilation time is caused by the extremely large tables present in this deprecated schema, which results in a large volume of generated code, expecially in the [`diesel`](https://github.com/diesel-rs/diesel) crate itself.
+
+| Operation | Real | User | Sys |
+| :--- | :--- | :--- | :--- |
+| **Compilation (uncached)** | 2m45.344s | 6m17.286s | 0m29.650s |
+| **Execution (compiled)** | 0m6.711s | 0m0.367s | 0m0.508s |
