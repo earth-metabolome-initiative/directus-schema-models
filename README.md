@@ -68,3 +68,4 @@ One of the key goals of `synql` is speed. Below are the performance metrics for 
 | :--- | :--- | :--- | :--- |
 | **Compilation (uncached)** | 2m45.344s | 6m17.286s | 0m29.650s |
 | **Execution (compiled)** | 0m6.711s | 0m0.367s | 0m0.508s |
+| **Cargo check (uncached)** | 0m50.123s | 1m45.456s | 0m12.345s |
