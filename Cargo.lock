@@ -222,6 +222,64 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "48c757948c5ede0e46177b7add2e67155f70e33c07fea8284df6576da70b3719"
 
 [[package]]
+name = "emi_deprecated_models"
+version = "0.1.0"
+dependencies = [
+ "emi_deprecated_models-addresses",
+ "emi_deprecated_models-aliquoting_data",
+ "emi_deprecated_models-batch_types",
+ "emi_deprecated_models-batches",
+ "emi_deprecated_models-brands",
+ "emi_deprecated_models-buildings",
+ "emi_deprecated_models-container_models",
+ "emi_deprecated_models-container_rules",
+ "emi_deprecated_models-container_types",
+ "emi_deprecated_models-containers",
+ "emi_deprecated_models-directus_access",
+ "emi_deprecated_models-directus_activity",
+ "emi_deprecated_models-directus_collections",
+ "emi_deprecated_models-directus_comments",
+ "emi_deprecated_models-directus_dashboards",
+ "emi_deprecated_models-directus_extensions",
+ "emi_deprecated_models-directus_fields",
+ "emi_deprecated_models-directus_files",
+ "emi_deprecated_models-directus_flows",
+ "emi_deprecated_models-directus_folders",
+ "emi_deprecated_models-directus_migrations",
+ "emi_deprecated_models-directus_notifications",
+ "emi_deprecated_models-directus_operations",
+ "emi_deprecated_models-directus_panels",
+ "emi_deprecated_models-directus_permissions",
+ "emi_deprecated_models-directus_policies",
+ "emi_deprecated_models-directus_presets",
+ "emi_deprecated_models-directus_relations",
+ "emi_deprecated_models-directus_revisions",
+ "emi_deprecated_models-directus_roles",
+ "emi_deprecated_models-directus_sessions",
+ "emi_deprecated_models-directus_settings",
+ "emi_deprecated_models-directus_shares",
+ "emi_deprecated_models-directus_translations",
+ "emi_deprecated_models-directus_users",
+ "emi_deprecated_models-directus_versions",
+ "emi_deprecated_models-directus_webhooks",
+ "emi_deprecated_models-dried_samples_data",
+ "emi_deprecated_models-extraction_data",
+ "emi_deprecated_models-extraction_methods",
+ "emi_deprecated_models-field_data",
+ "emi_deprecated_models-injection_methods",
+ "emi_deprecated_models-instrument_models",
+ "emi_deprecated_models-instrument_types",
+ "emi_deprecated_models-instruments",
+ "emi_deprecated_models-ms_data",
+ "emi_deprecated_models-projects",
+ "emi_deprecated_models-rooms",
+ "emi_deprecated_models-si_units",
+ "emi_deprecated_models-spatial_ref_sys",
+ "emi_deprecated_models-specimens",
+ "emi_deprecated_models-universities",
+]
+
+[[package]]
 name = "emi_deprecated_models-addresses"
 version = "0.1.0"
 dependencies = [

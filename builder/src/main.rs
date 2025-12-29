@@ -60,6 +60,7 @@ pub fn main() {
         SynQL::new_with_crate_base_path(&db, "../".as_ref(), "emi_deprecated_models".as_ref())
             .name("emi_deprecated_models")
             .deny_list(deny_listed_tables)
+            .sink_crate("emi_deprecated_models")
             .generate_workspace_toml()
             .generate_rustfmt()
             .into();

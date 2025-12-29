@@ -1,0 +1,62 @@
+[package]
+name = "emi_deprecated_models"
+version = "0.1.0"
+edition.workspace = true
+
+
+[dependencies]
+emi_deprecated_models-addresses.workspace = true
+emi_deprecated_models-aliquoting_data.workspace = true
+emi_deprecated_models-batch_types.workspace = true
+emi_deprecated_models-batches.workspace = true
+emi_deprecated_models-brands.workspace = true
+emi_deprecated_models-buildings.workspace = true
+emi_deprecated_models-container_models.workspace = true
+emi_deprecated_models-container_rules.workspace = true
+emi_deprecated_models-container_types.workspace = true
+emi_deprecated_models-containers.workspace = true
+emi_deprecated_models-dried_samples_data.workspace = true
+emi_deprecated_models-extraction_data.workspace = true
+emi_deprecated_models-extraction_methods.workspace = true
+emi_deprecated_models-field_data.workspace = true
+emi_deprecated_models-injection_methods.workspace = true
+emi_deprecated_models-instrument_models.workspace = true
+emi_deprecated_models-instrument_types.workspace = true
+emi_deprecated_models-instruments.workspace = true
+emi_deprecated_models-ms_data.workspace = true
+emi_deprecated_models-projects.workspace = true
+emi_deprecated_models-rooms.workspace = true
+emi_deprecated_models-si_units.workspace = true
+emi_deprecated_models-specimens.workspace = true
+emi_deprecated_models-universities.workspace = true
+emi_deprecated_models-directus_access.workspace = true
+emi_deprecated_models-directus_activity.workspace = true
+emi_deprecated_models-directus_collections.workspace = true
+emi_deprecated_models-directus_comments.workspace = true
+emi_deprecated_models-directus_dashboards.workspace = true
+emi_deprecated_models-directus_extensions.workspace = true
+emi_deprecated_models-directus_fields.workspace = true
+emi_deprecated_models-directus_files.workspace = true
+emi_deprecated_models-directus_flows.workspace = true
+emi_deprecated_models-directus_folders.workspace = true
+emi_deprecated_models-directus_migrations.workspace = true
+emi_deprecated_models-directus_notifications.workspace = true
+emi_deprecated_models-directus_operations.workspace = true
+emi_deprecated_models-directus_panels.workspace = true
+emi_deprecated_models-directus_permissions.workspace = true
+emi_deprecated_models-directus_policies.workspace = true
+emi_deprecated_models-directus_presets.workspace = true
+emi_deprecated_models-directus_relations.workspace = true
+emi_deprecated_models-directus_revisions.workspace = true
+emi_deprecated_models-directus_roles.workspace = true
+emi_deprecated_models-directus_sessions.workspace = true
+emi_deprecated_models-directus_settings.workspace = true
+emi_deprecated_models-directus_shares.workspace = true
+emi_deprecated_models-directus_translations.workspace = true
+emi_deprecated_models-directus_users.workspace = true
+emi_deprecated_models-directus_versions.workspace = true
+emi_deprecated_models-directus_webhooks.workspace = true
+emi_deprecated_models-spatial_ref_sys.workspace = true
+
+[lints]
+workspace = true

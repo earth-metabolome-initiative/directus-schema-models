@@ -53,6 +53,7 @@ members = [
   "emi_deprecated_models/emi_deprecated_models-directus_versions",
   "emi_deprecated_models/emi_deprecated_models-directus_webhooks",
   "emi_deprecated_models/emi_deprecated_models-spatial_ref_sys",
+  "emi_deprecated_models/emi_deprecated_models",
 ]
 
 [workspace.package]
