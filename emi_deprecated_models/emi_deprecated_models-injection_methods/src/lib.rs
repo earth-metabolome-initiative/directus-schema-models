@@ -4,6 +4,8 @@
     Clone,
     Eq,
     PartialEq,
+    serde :: Serialize,
+    serde :: Deserialize,
     diesel :: Queryable,
     diesel :: Selectable,
     diesel :: Identifiable,
