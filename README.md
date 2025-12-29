@@ -20,7 +20,7 @@ Additionally, this project serves as a proof of concept for `synql`, our library
 To build and run the generator, ensure you have the following installed:
 
 - **[Rust & Cargo](https://www.rust-lang.org/tools/install)**: The Rust programming language and package manager.
-- **[Taplo](https://taplo.tamasfe.dev/cli/installation.html)**: A TOML formatter used to format the generated `Cargo.toml` files.
+- **[Taplo](https://taplo.tamasfe.dev/cli/installation/cargo.html)**: A TOML formatter used to format the generated `Cargo.toml` files.
 
   ```bash
   cargo install taplo-cli --locked
