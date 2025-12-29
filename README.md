@@ -6,7 +6,7 @@
 
 This repository contains the Rust models generated from the legacy Directus database schema used by the Earth Metabolome Initiative (EMI). These models are primarily used to facilitate the migration of data from the deprecated Directus system to our new architecture.
 
-Additionally, this project serves as a proof of concept for [`synql`](https://github.com/earth-metabolome-initiative/synql), our library designed to generate strongly-typed Rust models from various SQL backends (PostgreSQL, raw SQL documents, etc.).
+Additionally, this project serves as a proof of concept for `synql`, our library designed to generate strongly-typed Rust models from various SQL backends (PostgreSQL, raw SQL documents, etc.).
 
 ## Repository Structure
 
