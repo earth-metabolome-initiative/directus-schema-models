@@ -1,6 +1,8 @@
 //! Auto-generated crate for the `directus_revisions` table.
 #[derive(
     Clone,
+    Debug,
+    Hash,
     Eq,
     PartialEq,
     serde :: Serialize,

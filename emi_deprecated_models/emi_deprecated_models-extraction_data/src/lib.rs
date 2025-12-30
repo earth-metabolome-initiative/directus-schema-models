@@ -2,6 +2,8 @@
 //! Auto-generated crate for the `Extraction_Data` table.
 #[derive(
     Clone,
+    Debug,
+    PartialOrd,
     PartialEq,
     serde :: Serialize,
     serde :: Deserialize,

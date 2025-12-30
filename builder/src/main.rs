@@ -1,12 +1,12 @@
 //! Builder executable to generate the Directus database code.
 use std::path::Path;
 mod config;
-use config::Config;
+use std::process::Command;
 
+use config::Config;
 use diesel::{Connection, PgConnection};
 use pg_diesel::database::{PgDieselDatabase, PgDieselDatabaseBuilder};
-use sql_traits::traits::DatabaseLike;
-use std::process::Command;
+use sql_traits::traits::{DatabaseLike, TableLike};
 use synql::prelude::*;
 use time_requirements::{prelude::TimeTracker, report::Report, task::Task};
 
@@ -55,6 +55,21 @@ pub fn main() {
         })
     }).collect::<Vec<_>>();
 
+    // We expect that none of the deny listed tables have other tables depending on
+    // them.
+    for table in &deny_listed_tables {
+        if table.has_dependent_tables(&db) {
+            eprintln!(
+                "The deny listed table '{}' has dependent tables in the database.",
+                table.table_name()
+            );
+            eprintln!(
+                "Please remove dependencies on this table before proceeding with code generation."
+            );
+            std::process::exit(1);
+        }
+    }
+
     // Generate the code associated with the database
     let synql: SynQL<PgDieselDatabase> =
         SynQL::new_with_crate_base_path(&db, "../".as_ref(), "emi_deprecated_models".as_ref())
@@ -85,11 +100,19 @@ pub fn main() {
         .expect("Failed to format generated TOML");
     tracker.add_completed_task(task);
 
+    // Resolves the `cargo clippy` code smells
+    let task = Task::new("Clippy Linting");
+    Command::new("cargo")
+        .arg("clippy")
+        .arg("--fix")
+        .arg("--allow-dirty")
+        .current_dir("../")
+        .status()
+        .expect("Failed to run cargo clippy on generated code");
+    tracker.add_completed_task(task);
+
     // We print the report
     Report::new(tracker)
-        .write(
-            Path::new("TIME_REQUIREMENTS.md"),
-            Path::new("TIME_REQUIREMENTS.png"),
-        )
+        .write(Path::new("TIME_REQUIREMENTS.md"), Path::new("TIME_REQUIREMENTS.png"))
         .unwrap();
 }

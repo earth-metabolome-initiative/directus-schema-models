@@ -2,6 +2,10 @@
 //! Auto-generated crate for the `Universities` table.
 #[derive(
     Clone,
+    Debug,
+    Hash,
+    Ord,
+    PartialOrd,
     Eq,
     PartialEq,
     serde :: Serialize,

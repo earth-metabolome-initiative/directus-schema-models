@@ -2,6 +2,8 @@
 //! Auto-generated crate for the `SI_Units` table.
 #[derive(
     Clone,
+    Debug,
+    PartialOrd,
     PartialEq,
     serde :: Serialize,
     serde :: Deserialize,

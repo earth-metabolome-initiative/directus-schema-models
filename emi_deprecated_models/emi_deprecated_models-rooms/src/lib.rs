@@ -2,6 +2,7 @@
 //! Auto-generated crate for the `Rooms` table.
 #[derive(
     Clone,
+    Debug,
     PartialEq,
     serde :: Serialize,
     serde :: Deserialize,

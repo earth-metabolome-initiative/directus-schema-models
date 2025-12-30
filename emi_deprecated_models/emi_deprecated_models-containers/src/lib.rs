@@ -2,6 +2,10 @@
 //! Auto-generated crate for the `Containers` table.
 #[derive(
     Clone,
+    Debug,
+    Hash,
+    Ord,
+    PartialOrd,
     Eq,
     PartialEq,
     serde :: Serialize,

@@ -1,6 +1,8 @@
 //! Auto-generated crate for the `directus_operations` table.
 #[derive(
     Clone,
+    Debug,
+    Hash,
     Eq,
     PartialEq,
     serde :: Serialize,

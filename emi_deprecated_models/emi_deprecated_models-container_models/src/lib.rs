@@ -2,6 +2,8 @@
 //! Auto-generated crate for the `Container_Models` table.
 #[derive(
     Clone,
+    Debug,
+    PartialOrd,
     PartialEq,
     serde :: Serialize,
     serde :: Deserialize,

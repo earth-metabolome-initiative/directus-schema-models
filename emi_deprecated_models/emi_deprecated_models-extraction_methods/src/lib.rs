@@ -2,6 +2,10 @@
 //! Auto-generated crate for the `Extraction_Methods` table.
 #[derive(
     Clone,
+    Debug,
+    Hash,
+    Ord,
+    PartialOrd,
     Eq,
     PartialEq,
     serde :: Serialize,

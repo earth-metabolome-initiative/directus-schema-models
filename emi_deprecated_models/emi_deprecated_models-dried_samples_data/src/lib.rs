@@ -2,6 +2,10 @@
 //! Auto-generated crate for the `Dried_Samples_Data` table.
 #[derive(
     Clone,
+    Debug,
+    Hash,
+    Ord,
+    PartialOrd,
     Eq,
     PartialEq,
     serde :: Serialize,

@@ -2,6 +2,7 @@
 #[derive(
     Clone,
     Default,
+    Debug,
     Hash,
     Ord,
     PartialOrd,

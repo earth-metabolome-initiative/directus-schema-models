@@ -1,6 +1,10 @@
 //! Auto-generated crate for the `directus_notifications` table.
 #[derive(
     Clone,
+    Debug,
+    Hash,
+    Ord,
+    PartialOrd,
     Eq,
     PartialEq,
     serde :: Serialize,

@@ -2,6 +2,7 @@
 //! Auto-generated crate for the `Addresses` table.
 #[derive(
     Clone,
+    Debug,
     PartialEq,
     serde :: Serialize,
     serde :: Deserialize,

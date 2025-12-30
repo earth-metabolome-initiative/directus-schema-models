@@ -116,7 +116,6 @@ rosetta_timestamp = { git = "https://github.com/earth-metabolome-initiative/emi-
   "diesel",
   "serde",
 ] }
-chrono = { version = "0.4.42" }
 pgrx_validation = { git = "https://github.com/earth-metabolome-initiative/emi-monorepo", branch = "postgres-crate" }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = { version = "1.0" }

@@ -1,6 +1,8 @@
 //! Auto-generated crate for the `directus_files` table.
 #[derive(
     Clone,
+    Debug,
+    Hash,
     Eq,
     PartialEq,
     serde :: Serialize,

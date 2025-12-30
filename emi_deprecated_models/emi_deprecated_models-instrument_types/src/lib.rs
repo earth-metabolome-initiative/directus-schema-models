@@ -2,6 +2,10 @@
 //! Auto-generated crate for the `Instrument_Types` table.
 #[derive(
     Clone,
+    Debug,
+    Hash,
+    Ord,
+    PartialOrd,
     Eq,
     PartialEq,
     serde :: Serialize,
