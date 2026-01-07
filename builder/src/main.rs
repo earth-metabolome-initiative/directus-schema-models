@@ -8,7 +8,7 @@ use diesel::{Connection, PgConnection};
 use pg_diesel::database::{PgDieselDatabase, PgDieselDatabaseBuilder};
 use sql_traits::traits::{DatabaseLike, TableLike};
 use synql::prelude::*;
-use time_requirements::{prelude::TimeTracker, report::Report, task::Task};
+use time_requirements::{prelude::TimeTracker, task::Task};
 
 /// Executable to generate the code for the Directus database.
 pub fn main() {
@@ -76,6 +76,7 @@ pub fn main() {
             .name("emi_deprecated_models")
             .deny_list(deny_listed_tables)
             .sink_crate("emi_deprecated_models")
+            .member("builder")
             .generate_workspace_toml()
             .generate_rustfmt()
             .into();
@@ -112,7 +113,5 @@ pub fn main() {
     tracker.add_completed_task(task);
 
     // We print the report
-    Report::new(tracker)
-        .write(Path::new("TIME_REQUIREMENTS.md"), Path::new("TIME_REQUIREMENTS.png"))
-        .unwrap();
+    tracker.write(Path::new("TIME_REQUIREMENTS.md")).unwrap();
 }

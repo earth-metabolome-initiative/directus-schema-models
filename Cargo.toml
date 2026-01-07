@@ -1,6 +1,7 @@
 [workspace]
 resolver = "2"
 members = [
+  "builder",
   "emi_deprecated_models/emi_deprecated_models-addresses",
   "emi_deprecated_models/emi_deprecated_models-aliquoting_data",
   "emi_deprecated_models/emi_deprecated_models-batch_types",

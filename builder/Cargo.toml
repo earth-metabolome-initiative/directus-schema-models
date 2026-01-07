@@ -4,16 +4,14 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-synql = { git = "https://github.com/earth-metabolome-initiative/emi-monorepo", branch = "postgres-crate" }
+synql = { git = "https://github.com/earth-metabolome-initiative/synql", branch = "main" }
 diesel = { git = "https://github.com/LucaCappelletti94/diesel", branch = "future3", features = [
   "extras",
   "postgres",
 ] }
 serde = { version = "1.0", features = ["derive"] }
 toml = "0.9.8"
-pg_diesel = { git = "https://github.com/earth-metabolome-initiative/emi-monorepo", branch = "postgres-crate" }
-sql_traits = { git = "https://github.com/earth-metabolome-initiative/emi-monorepo", branch = "postgres-crate" }
-time_requirements = { git = "https://github.com/earth-metabolome-initiative/emi-monorepo", branch = "postgres-crate" }
-
-# Empty workspace to allow code generation into sibling folders
-[workspace]
+pg_diesel = { git = "https://github.com/earth-metabolome-initiative/pg_diesel", branch = "main", default-features = false}
+sql-traits = { git = "https://github.com/earth-metabolome-initiative/sql-traits", branch = "main" }
+time_requirements = "0.1.0"
+sql2kg = { git = "https://github.com/earth-metabolome-initiative/sql2kg", branch = "main" }
