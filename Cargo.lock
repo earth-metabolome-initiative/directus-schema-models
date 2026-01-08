@@ -308,7 +308,7 @@ checksum = "abd57806937c9cc163efc8ea3910e00a62e2aeb0b8119f1793a978088f8f6b04"
 [[package]]
 name = "diesel"
 version = "2.3.5"
-source = "git+https://github.com/LucaCappelletti94/diesel?branch=future3#34d53799d0bd747a87061701a03cd6ac5eb51332"
+source = "git+https://github.com/LucaCappelletti94/diesel?branch=future3#6243f4dc88b928bf1e19bdd752191b6475e777b1"
 dependencies = [
  "bigdecimal",
  "bitflags",
@@ -354,9 +354,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "diesel-dynamic-schema"
+version = "0.2.4"
+source = "git+https://github.com/LucaCappelletti94/diesel?branch=future3#6243f4dc88b928bf1e19bdd752191b6475e777b1"
+dependencies = [
+ "diesel",
+]
+
+[[package]]
 name = "diesel_derives"
 version = "2.3.6"
-source = "git+https://github.com/LucaCappelletti94/diesel?branch=future3#34d53799d0bd747a87061701a03cd6ac5eb51332"
+source = "git+https://github.com/LucaCappelletti94/diesel?branch=future3#6243f4dc88b928bf1e19bdd752191b6475e777b1"
 dependencies = [
  "diesel_table_macro_syntax",
  "dsl_auto_type",
@@ -368,7 +376,7 @@ dependencies = [
 [[package]]
 name = "diesel_table_macro_syntax"
 version = "0.3.0"
-source = "git+https://github.com/LucaCappelletti94/diesel?branch=future3#34d53799d0bd747a87061701a03cd6ac5eb51332"
+source = "git+https://github.com/LucaCappelletti94/diesel?branch=future3#6243f4dc88b928bf1e19bdd752191b6475e777b1"
 dependencies = [
  "syn",
 ]
@@ -393,7 +401,7 @@ checksum = "117240f60069e65410b3ae1bb213295bd828f707b5bec6596a1afc8793ce0cbc"
 [[package]]
 name = "dsl_auto_type"
 version = "0.2.0"
-source = "git+https://github.com/LucaCappelletti94/diesel?branch=future3#34d53799d0bd747a87061701a03cd6ac5eb51332"
+source = "git+https://github.com/LucaCappelletti94/diesel?branch=future3#6243f4dc88b928bf1e19bdd752191b6475e777b1"
 dependencies = [
  "darling 0.21.3",
  "either",
@@ -1540,9 +1548,9 @@ dependencies = [
 
 [[package]]
 name = "libc"
-version = "0.2.179"
+version = "0.2.180"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c5a2d376baa530d1238d133232d15e239abad80d05838b4b59354e5268af431f"
+checksum = "bcc35a38544a891a5f7c865aca548a982ccb3b8650a5b06d0fd33a10283c56fc"
 
 [[package]]
 name = "libgit2-sys"
@@ -1764,7 +1772,7 @@ checksum = "9b4f627cb1b25917193a259e49bdad08f671f8d9708acfd5fe0a8c1455d87220"
 [[package]]
 name = "pg_diesel"
 version = "0.1.0"
-source = "git+https://github.com/earth-metabolome-initiative/pg_diesel?branch=main#585799491de80f9c5c18265c5f17ee6e71be23ea"
+source = "git+https://github.com/earth-metabolome-initiative/pg_diesel?branch=main#7d8cbde1bcb2f932e646609e11a957c6a5fcf758"
 dependencies = [
  "diesel",
  "ipnetwork",
@@ -2091,13 +2099,15 @@ dependencies = [
 [[package]]
 name = "sql2kg"
 version = "0.1.0"
-source = "git+https://github.com/earth-metabolome-initiative/sql2kg?branch=main#0e92c67bca6e73ec35683a4a237a0c63e46fd2f9"
+source = "git+https://github.com/earth-metabolome-initiative/sql2kg?branch=main#b78f0a21cc9b0b56eb2a90df2c33a3a73621f33d"
 dependencies = [
  "csv",
  "diesel",
+ "diesel-dynamic-schema",
  "flate2",
  "sql-traits",
  "thiserror",
+ "time_requirements",
  "uuid",
 ]
 
