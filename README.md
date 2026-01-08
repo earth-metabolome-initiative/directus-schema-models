@@ -16,18 +16,6 @@ Additionally, this project serves as a proof of concept for `synql`, our library
 
 ![Workspace Visualization](./workspace.svg)
 
-## Knowledge Graph Export
-
-We have added support for generating a Knowledge Graph (KG) from the database schema using [`sql2kg`](https://github.com/earth-metabolome-initiative/sql2kg). This allows for the export of nodes and edges representing the database structure and data, which can then be analyzed using graph algorithms.
-
-You can see an example of how to configure and run the export in `builder/src/bin/kg.rs`. The exported data can be loaded and analyzed using the [GRAPE](https://github.com/AnacletoLAB/grape) library, as demonstrated in the [`kg.py`](kg.py) script included in this repository.
-
-You can generate the knowledge graph CSV files by running the `kg` binary (should take around 30 seconds):
-
-```bash
-cargo run --bin kg --release
-```
-
 ## Prerequisites
 
 To build and run the generator, ensure you have the following installed:
@@ -82,3 +70,15 @@ One of the key goals of `synql` is speed. Below are the performance metrics for 
 | **Compilation (uncached)** | 2m45.344s | 6m17.286s | 0m29.650s |
 | **Execution (compiled)** | 0m6.711s | 0m0.367s | 0m0.508s |
 | **Cargo check (uncached)** | 0m50.123s | 1m45.456s | 0m12.345s |
+
+## Knowledge Graph Export
+
+We have added support for generating a Knowledge Graph (KG) from the database schema using [`sql2kg`](https://github.com/earth-metabolome-initiative/sql2kg). This allows for the export of nodes and edges representing the database structure and data, which can then be analyzed using graph algorithms.
+
+You can see an example of how to configure and run the export in `builder/src/bin/kg.rs`. The exported data can be loaded and analyzed using the [GRAPE](https://github.com/AnacletoLAB/grape) library, as demonstrated in the [`kg.py`](kg.py) script included in this repository.
+
+You can generate the knowledge graph CSV files by running the `kg` binary (should take around 30 seconds):
+
+```bash
+cargo run --bin kg --release
+```
