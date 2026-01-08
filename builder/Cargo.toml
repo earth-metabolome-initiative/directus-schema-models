@@ -3,6 +3,18 @@ name = "builder"
 version = "0.1.0"
 edition = "2024"
 
+[lib]
+name = "builder"
+path = "src/lib.rs"
+
+[[bin]]
+name = "builder"
+path = "src/main.rs"
+
+[[bin]]
+name = "kg"
+path = "src/bin/kg.rs"
+
 [dependencies]
 synql = { git = "https://github.com/earth-metabolome-initiative/synql", branch = "main" }
 diesel = { git = "https://github.com/LucaCappelletti94/diesel", branch = "future3", features = [
@@ -15,3 +27,6 @@ pg_diesel = { git = "https://github.com/earth-metabolome-initiative/pg_diesel", 
 sql-traits = { git = "https://github.com/earth-metabolome-initiative/sql-traits", branch = "main" }
 time_requirements = "0.1.0"
 sql2kg = { git = "https://github.com/earth-metabolome-initiative/sql2kg", branch = "main" }
+
+[lints]
+workspace = true

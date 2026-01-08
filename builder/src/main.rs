@@ -1,40 +1,16 @@
 //! Builder executable to generate the Directus database code.
-use std::path::Path;
 mod config;
+mod common;
 use std::process::Command;
 
-use config::Config;
-use diesel::{Connection, PgConnection};
-use pg_diesel::database::{PgDieselDatabase, PgDieselDatabaseBuilder};
+use pg_diesel::database::PgDieselDatabase;
 use sql_traits::traits::{DatabaseLike, TableLike};
 use synql::prelude::*;
-use time_requirements::{prelude::TimeTracker, task::Task};
+use time_requirements::task::Task;
 
 /// Executable to generate the code for the Directus database.
 pub fn main() {
-    // Load configuration from file
-    let Ok(config) = Config::try_from("config.toml") else {
-        eprintln!("Failed to load configuration from 'config.toml'");
-        eprintln!("Please ensure the file exists and is properly formatted.");
-        eprintln!("Refer to 'config.example.toml' for the correct format.");
-        std::process::exit(1);
-    };
-
-    let mut tracker = TimeTracker::new("Directus Schema Generation");
-
-    let task = Task::new("DB Connection");
-    let mut conn =
-        PgConnection::establish(&config.to_string()).expect("Failed to connect to database");
-    tracker.add_completed_task(task);
-
-    let task = Task::new("DB Introspection");
-    let db: PgDieselDatabase = PgDieselDatabaseBuilder::default()
-        .connection(&mut conn)
-        .schema("public")
-        .catalog(config.database_name())
-        .try_into()
-        .expect("Failed to build database");
-    tracker.add_completed_task(task);
+    let (mut tracker, _conn, db) = common::setup();
 
     let deny_listed_tables = [
         // Column excluded due to the extremely large number of columns (150)
@@ -71,8 +47,9 @@ pub fn main() {
     }
 
     // Generate the code associated with the database
+    let workspace_root = common::workspace_root();
     let synql: SynQL<PgDieselDatabase> =
-        SynQL::new_with_crate_base_path(&db, "../".as_ref(), "emi_deprecated_models".as_ref())
+        SynQL::new_with_crate_base_path(&db, workspace_root.as_path(), "emi_deprecated_models".as_ref())
             .name("emi_deprecated_models")
             .deny_list(deny_listed_tables)
             .sink_crate("emi_deprecated_models")
@@ -87,7 +64,7 @@ pub fn main() {
     let task = Task::new("Code Formatting");
     Command::new("cargo")
         .arg("fmt")
-        .current_dir("../")
+        .current_dir(common::workspace_root())
         .status()
         .expect("Failed to format generated code");
     tracker.add_completed_task(task);
@@ -96,7 +73,7 @@ pub fn main() {
     let task = Task::new("TOML Formatting");
     Command::new("taplo")
         .arg("fmt")
-        .current_dir("../")
+        .current_dir(common::workspace_root())
         .status()
         .expect("Failed to format generated TOML");
     tracker.add_completed_task(task);
@@ -107,11 +84,12 @@ pub fn main() {
         .arg("clippy")
         .arg("--fix")
         .arg("--allow-dirty")
-        .current_dir("../")
+        .current_dir(common::workspace_root())
         .status()
         .expect("Failed to run cargo clippy on generated code");
     tracker.add_completed_task(task);
 
     // We print the report
-    tracker.write(Path::new("TIME_REQUIREMENTS.md")).unwrap();
+    let report_path = common::workspace_root().join("builder/TIME_REQUIREMENTS.md");
+    tracker.write(report_path.as_path()).unwrap();
 }
