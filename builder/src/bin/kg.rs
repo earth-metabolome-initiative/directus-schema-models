@@ -12,8 +12,7 @@ pub fn main() {
 
     let task = Task::new("KG Generation");
     let kg_path = common::workspace_root().join("kg_data/directus");
-    db.write_kg_csvs(&mut conn, kg_path.as_path(), false)
-        .expect("Failed to write KG CSVs");
+    db.write_kg_csvs(&mut conn, kg_path.as_path(), false).expect("Failed to write KG CSVs");
     tracker.add_completed_task(task);
 
     // We print the report

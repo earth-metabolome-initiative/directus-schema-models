@@ -1,22 +1,20 @@
 //! Common setup code for the builder executables.
-use crate::config::Config;
+use std::path::PathBuf;
+
 use diesel::{Connection, PgConnection};
 use pg_diesel::database::{PgDieselDatabase, PgDieselDatabaseBuilder};
-use std::path::PathBuf;
 use time_requirements::{prelude::TimeTracker, task::Task};
+
+use crate::config::Config;
 
 /// Returns the path to the workspace root.
 pub fn workspace_root() -> PathBuf {
     let cwd = std::env::current_dir().unwrap();
-    if cwd.ends_with("builder") {
-        cwd.parent().unwrap().to_path_buf()
-    } else {
-        cwd
-    }
+    if cwd.ends_with("builder") { cwd.parent().unwrap().to_path_buf() } else { cwd }
 }
 
-/// Sets up the database connection and introspection, returning the time tracker,
-/// the database connection, and the introspected database.
+/// Sets up the database connection and introspection, returning the time
+/// tracker, the database connection, and the introspected database.
 pub fn setup() -> (TimeTracker, PgConnection, PgDieselDatabase) {
     // Determine the path to config.toml based on workspace root
     let config_path = workspace_root().join("builder").join("config.toml");

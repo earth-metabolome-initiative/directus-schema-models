@@ -1,6 +1,6 @@
 //! Builder executable to generate the Directus database code.
-mod config;
 mod common;
+mod config;
 use std::process::Command;
 
 use pg_diesel::database::PgDieselDatabase;
@@ -48,15 +48,18 @@ pub fn main() {
 
     // Generate the code associated with the database
     let workspace_root = common::workspace_root();
-    let synql: SynQL<PgDieselDatabase> =
-        SynQL::new_with_crate_base_path(&db, workspace_root.as_path(), "emi_deprecated_models".as_ref())
-            .name("emi_deprecated_models")
-            .deny_list(deny_listed_tables)
-            .sink_crate("emi_deprecated_models")
-            .member("builder")
-            .generate_workspace_toml()
-            .generate_rustfmt()
-            .into();
+    let synql: SynQL<PgDieselDatabase> = SynQL::new_with_crate_base_path(
+        &db,
+        workspace_root.as_path(),
+        "emi_deprecated_models".as_ref(),
+    )
+    .name("emi_deprecated_models")
+    .deny_list(deny_listed_tables)
+    .sink_crate("emi_deprecated_models")
+    .member("builder")
+    .generate_workspace_toml()
+    .generate_rustfmt()
+    .into();
 
     tracker.extend(synql.generate().expect("Unable to generate workspace"));
 
