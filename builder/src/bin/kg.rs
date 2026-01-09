@@ -10,9 +10,8 @@ pub fn main() {
     let (mut tracker, mut conn, db) = common::setup();
 
     let kg_path = common::workspace_root().join("kg_data/directus");
-    tracker.extend(
-        db.write_kg_csvs(&mut conn, kg_path.as_path(), false).expect("Failed to write KG CSVs"),
-    );
+    tracker
+        .extend(db.write_kg_csvs(&mut conn, kg_path.as_path()).expect("Failed to write KG CSVs"));
 
     // We print the report
     let report_path = common::workspace_root().join("builder/KG_TIME_REQUIREMENTS.md");

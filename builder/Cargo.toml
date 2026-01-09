@@ -23,7 +23,7 @@ diesel = { git = "https://github.com/LucaCappelletti94/diesel", branch = "future
 ] }
 serde = { version = "1.0", features = ["derive"] }
 toml = "0.9.8"
-pg_diesel = { git = "https://github.com/earth-metabolome-initiative/pg_diesel", branch = "main", default-features = false}
+pg_diesel = { git = "https://github.com/earth-metabolome-initiative/pg_diesel", branch = "main", default-features = false }
 sql-traits = { git = "https://github.com/earth-metabolome-initiative/sql-traits", branch = "main" }
 time_requirements = "0.1.0"
 sql2kg = { git = "https://github.com/earth-metabolome-initiative/sql2kg", branch = "main" }

@@ -97,7 +97,7 @@ pub struct FieldDatum {
     /// Field representing the `herbivory_percent` column in table `Field_Data`.
     herbivory_percent: Option<f32>,
     /// Field representing the `temperature_°C` column in table `Field_Data`.
-    temperature_celsius: Option<f32>,
+    temperature_c: Option<f32>,
     /// Field representing the `geometry` column in table `Field_Data`.
     # [diesel (sql_type = :: postgis_diesel :: sql_types :: Geometry)]
     geometry: Option<postgis_diesel::types::GeometryContainer<postgis_diesel::types::Point>>,
