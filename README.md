@@ -6,7 +6,7 @@
 
 This repository contains the Rust models generated from the legacy Directus database schema used by the Earth Metabolome Initiative (EMI). These models are primarily used to facilitate the migration of data from the deprecated Directus system to our new architecture. The generated code relies extensively on [`diesel-builders`](https://github.com/LucaCappelletti94/diesel-builders/) derives to maintain a very minimal amount of non-derived generated code (1904 lines for 52 tables, ~37 lines per table), focusing on human-readable schema definitions and relationships. Each table is generated as a separate crate within a Cargo workspace, allowing for modular usage and parallel compilation.
 
-Additionally, this project serves as a proof of concept for `synql`, our library designed to generate strongly-typed Rust models from various SQL backends (PostgreSQL, raw SQL documents, etc.).
+Additionally, this project serves as a proof of concept for [`synql`](https://github.com/earth-metabolome-initiative/synql), our library designed to generate strongly-typed Rust models from various SQL backends (PostgreSQL, raw SQL documents, etc.).
 
 ## Repository Structure
 
