@@ -8,14 +8,17 @@
     PartialOrd,
     Eq,
     PartialEq,
-    serde :: Serialize,
-    serde :: Deserialize,
-    diesel :: Queryable,
-    diesel :: Selectable,
-    diesel :: Identifiable,
-    diesel_builders :: prelude :: TableModel,
+    :: serde :: Serialize,
+    :: serde :: Deserialize,
+    :: diesel :: Queryable,
+    :: diesel :: Selectable,
+    :: diesel :: Identifiable,
+    :: diesel :: Associations,
+    :: diesel_builders :: prelude :: TableModel,
 )]
 /// Struct representing a row in the `Instrument_Models` table.
+# [diesel (belongs_to (emi_deprecated_models_brands :: Brand , foreign_key = brand))]
+# [diesel (belongs_to (emi_deprecated_models_instrument_types :: InstrumentType , foreign_key = instrument_type))]
 #[table_model(surrogate_key)]
 # [diesel (table_name = Instrument_Models)]
 pub struct InstrumentModel {
@@ -51,7 +54,7 @@ pub struct InstrumentModel {
     /// Field representing the `barcode` column in table `Instrument_Models`.
     barcode: Option<String>,
 }
-:: diesel_builders :: prelude :: fk ! ((Instrument_Models :: brand) -> (:: emi_deprecated_models_brands :: Brands :: id));
-:: diesel_builders :: prelude :: fk ! ((Instrument_Models :: instrument_type) -> (:: emi_deprecated_models_instrument_types :: Instrument_Types :: id));
-:: diesel_builders :: prelude :: fk ! ((Instrument_Models :: user_created) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
-:: diesel_builders :: prelude :: fk ! ((Instrument_Models :: user_updated) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
+:: diesel_builders :: prelude :: fpk ! (Instrument_Models :: brand -> :: emi_deprecated_models_brands :: Brands);
+:: diesel_builders :: prelude :: fpk ! (Instrument_Models :: instrument_type -> :: emi_deprecated_models_instrument_types :: Instrument_Types);
+:: diesel_builders :: prelude :: fpk ! (Instrument_Models :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);
+:: diesel_builders :: prelude :: fpk ! (Instrument_Models :: user_updated -> :: emi_deprecated_models_directus_users :: directus_users);

@@ -5,14 +5,16 @@
     Hash,
     Eq,
     PartialEq,
-    serde :: Serialize,
-    serde :: Deserialize,
-    diesel :: Queryable,
-    diesel :: Selectable,
-    diesel :: Identifiable,
-    diesel_builders :: prelude :: TableModel,
+    :: serde :: Serialize,
+    :: serde :: Deserialize,
+    :: diesel :: Queryable,
+    :: diesel :: Selectable,
+    :: diesel :: Identifiable,
+    :: diesel :: Associations,
+    :: diesel_builders :: prelude :: TableModel,
 )]
 /// Struct representing a row in the `directus_files` table.
+# [diesel (belongs_to (emi_deprecated_models_directus_folders :: DirectusFolder , foreign_key = folder))]
 # [diesel (table_name = directus_files)]
 pub struct DirectusFile {
     /// Field representing the `id` column in table `directus_files`.
@@ -80,6 +82,6 @@ pub struct DirectusFile {
     # [diesel (sql_type = :: rosetta_timestamp :: diesel_impls :: TimestampUTC)]
     uploaded_on: Option<::rosetta_timestamp::TimestampUTC>,
 }
-:: diesel_builders :: prelude :: fk ! ((directus_files :: folder) -> (:: emi_deprecated_models_directus_folders :: directus_folders :: id));
-:: diesel_builders :: prelude :: fk ! ((directus_files :: modified_by) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
-:: diesel_builders :: prelude :: fk ! ((directus_files :: uploaded_by) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
+:: diesel_builders :: prelude :: fpk ! (directus_files :: folder -> :: emi_deprecated_models_directus_folders :: directus_folders);
+:: diesel_builders :: prelude :: fpk ! (directus_files :: modified_by -> :: emi_deprecated_models_directus_users :: directus_users);
+:: diesel_builders :: prelude :: fpk ! (directus_files :: uploaded_by -> :: emi_deprecated_models_directus_users :: directus_users);

@@ -52,7 +52,7 @@ To build and run the generator, ensure you have the following installed:
     Execute the builder to generate the models.
 
     ```bash
-    cargo run --release
+    cargo run --bin builder --release
     ```
 
     The process involves:

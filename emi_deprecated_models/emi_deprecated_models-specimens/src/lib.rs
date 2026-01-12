@@ -8,12 +8,12 @@
     PartialOrd,
     Eq,
     PartialEq,
-    serde :: Serialize,
-    serde :: Deserialize,
-    diesel :: Queryable,
-    diesel :: Selectable,
-    diesel :: Identifiable,
-    diesel_builders :: prelude :: TableModel,
+    :: serde :: Serialize,
+    :: serde :: Deserialize,
+    :: diesel :: Queryable,
+    :: diesel :: Selectable,
+    :: diesel :: Identifiable,
+    :: diesel_builders :: prelude :: TableModel,
 )]
 /// Struct representing a row in the `Specimens` table.
 #[table_model(surrogate_key)]
@@ -37,5 +37,5 @@ pub struct Specimen {
     # [diesel (sql_type = :: rosetta_timestamp :: diesel_impls :: TimestampUTC)]
     date_updated: Option<::rosetta_timestamp::TimestampUTC>,
 }
-:: diesel_builders :: prelude :: fk ! ((Specimens :: user_created) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
-:: diesel_builders :: prelude :: fk ! ((Specimens :: user_updated) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
+:: diesel_builders :: prelude :: fpk ! (Specimens :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);
+:: diesel_builders :: prelude :: fpk ! (Specimens :: user_updated -> :: emi_deprecated_models_directus_users :: directus_users);

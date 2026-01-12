@@ -4,14 +4,17 @@
     Clone,
     Debug,
     PartialEq,
-    serde :: Serialize,
-    serde :: Deserialize,
-    diesel :: Queryable,
-    diesel :: Selectable,
-    diesel :: Identifiable,
-    diesel_builders :: prelude :: TableModel,
+    :: serde :: Serialize,
+    :: serde :: Deserialize,
+    :: diesel :: Queryable,
+    :: diesel :: Selectable,
+    :: diesel :: Identifiable,
+    :: diesel :: Associations,
+    :: diesel_builders :: prelude :: TableModel,
 )]
 /// Struct representing a row in the `Rooms` table.
+# [diesel (belongs_to (emi_deprecated_models_addresses :: Address , foreign_key = address))]
+# [diesel (belongs_to (emi_deprecated_models_buildings :: Building , foreign_key = building))]
 #[table_model(surrogate_key)]
 # [diesel (table_name = Rooms)]
 pub struct Room {
@@ -47,7 +50,7 @@ pub struct Room {
     # [diesel (sql_type = :: rosetta_uuid :: diesel_impls :: Uuid)]
     qr_code: ::rosetta_uuid::Uuid,
 }
-:: diesel_builders :: prelude :: fk ! ((Rooms :: address) -> (:: emi_deprecated_models_addresses :: Addresses :: id));
-:: diesel_builders :: prelude :: fk ! ((Rooms :: building) -> (:: emi_deprecated_models_buildings :: Buildings :: id));
-:: diesel_builders :: prelude :: fk ! ((Rooms :: user_created) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
-:: diesel_builders :: prelude :: fk ! ((Rooms :: user_updated) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
+:: diesel_builders :: prelude :: fpk ! (Rooms :: address -> :: emi_deprecated_models_addresses :: Addresses);
+:: diesel_builders :: prelude :: fpk ! (Rooms :: building -> :: emi_deprecated_models_buildings :: Buildings);
+:: diesel_builders :: prelude :: fpk ! (Rooms :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);
+:: diesel_builders :: prelude :: fpk ! (Rooms :: user_updated -> :: emi_deprecated_models_directus_users :: directus_users);

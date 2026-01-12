@@ -5,14 +5,17 @@
     Hash,
     Eq,
     PartialEq,
-    serde :: Serialize,
-    serde :: Deserialize,
-    diesel :: Queryable,
-    diesel :: Selectable,
-    diesel :: Identifiable,
-    diesel_builders :: prelude :: TableModel,
+    :: serde :: Serialize,
+    :: serde :: Deserialize,
+    :: diesel :: Queryable,
+    :: diesel :: Selectable,
+    :: diesel :: Identifiable,
+    :: diesel :: Associations,
+    :: diesel_builders :: prelude :: TableModel,
 )]
 /// Struct representing a row in the `directus_operations` table.
+# [diesel (belongs_to (emi_deprecated_models_directus_flows :: DirectusFlow , foreign_key = flow))]
+# [diesel (belongs_to (emi_deprecated_models_directus_users :: DirectusUser , foreign_key = user_created))]
 # [diesel (table_name = directus_operations)]
 pub struct DirectusOperation {
     /// Field representing the `id` column in table `directus_operations`.
@@ -54,7 +57,7 @@ pub struct DirectusOperation {
 }
 ::diesel_builders::prelude::unique_index!(directus_operations::reject);
 ::diesel_builders::prelude::unique_index!(directus_operations::resolve);
-:: diesel_builders :: prelude :: fk ! ((directus_operations :: flow) -> (:: emi_deprecated_models_directus_flows :: directus_flows :: id));
-:: diesel_builders :: prelude :: fk ! ((directus_operations :: reject) -> (directus_operations :: id));
-:: diesel_builders :: prelude :: fk ! ((directus_operations :: resolve) -> (directus_operations :: id));
-:: diesel_builders :: prelude :: fk ! ((directus_operations :: user_created) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
+:: diesel_builders :: prelude :: fpk ! (directus_operations :: flow -> :: emi_deprecated_models_directus_flows :: directus_flows);
+:: diesel_builders :: prelude :: fpk ! (directus_operations :: reject -> directus_operations);
+:: diesel_builders :: prelude :: fpk ! (directus_operations :: resolve -> directus_operations);
+:: diesel_builders :: prelude :: fpk ! (directus_operations :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);

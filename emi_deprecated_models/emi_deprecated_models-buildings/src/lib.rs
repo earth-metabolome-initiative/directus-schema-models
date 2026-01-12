@@ -8,14 +8,16 @@
     PartialOrd,
     Eq,
     PartialEq,
-    serde :: Serialize,
-    serde :: Deserialize,
-    diesel :: Queryable,
-    diesel :: Selectable,
-    diesel :: Identifiable,
-    diesel_builders :: prelude :: TableModel,
+    :: serde :: Serialize,
+    :: serde :: Deserialize,
+    :: diesel :: Queryable,
+    :: diesel :: Selectable,
+    :: diesel :: Identifiable,
+    :: diesel :: Associations,
+    :: diesel_builders :: prelude :: TableModel,
 )]
 /// Struct representing a row in the `Buildings` table.
+# [diesel (belongs_to (emi_deprecated_models_universities :: University , foreign_key = university))]
 #[table_model(surrogate_key)]
 # [diesel (table_name = Buildings)]
 pub struct Building {
@@ -42,6 +44,6 @@ pub struct Building {
     /// Field representing the `address` column in table `Buildings`.
     address: Option<String>,
 }
-:: diesel_builders :: prelude :: fk ! ((Buildings :: university) -> (:: emi_deprecated_models_universities :: Universities :: id));
-:: diesel_builders :: prelude :: fk ! ((Buildings :: user_created) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
-:: diesel_builders :: prelude :: fk ! ((Buildings :: user_updated) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
+:: diesel_builders :: prelude :: fpk ! (Buildings :: university -> :: emi_deprecated_models_universities :: Universities);
+:: diesel_builders :: prelude :: fpk ! (Buildings :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);
+:: diesel_builders :: prelude :: fpk ! (Buildings :: user_updated -> :: emi_deprecated_models_directus_users :: directus_users);

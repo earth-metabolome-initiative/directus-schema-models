@@ -5,14 +5,17 @@
     Hash,
     Eq,
     PartialEq,
-    serde :: Serialize,
-    serde :: Deserialize,
-    diesel :: Queryable,
-    diesel :: Selectable,
-    diesel :: Identifiable,
-    diesel_builders :: prelude :: TableModel,
+    :: serde :: Serialize,
+    :: serde :: Deserialize,
+    :: diesel :: Queryable,
+    :: diesel :: Selectable,
+    :: diesel :: Identifiable,
+    :: diesel :: Associations,
+    :: diesel_builders :: prelude :: TableModel,
 )]
 /// Struct representing a row in the `directus_revisions` table.
+# [diesel (belongs_to (emi_deprecated_models_directus_activity :: DirectusActivity , foreign_key = activity))]
+# [diesel (belongs_to (emi_deprecated_models_directus_versions :: DirectusVersion , foreign_key = version))]
 #[table_model(surrogate_key)]
 # [diesel (table_name = directus_revisions)]
 pub struct DirectusRevision {
@@ -37,6 +40,6 @@ pub struct DirectusRevision {
     # [diesel (sql_type = :: rosetta_uuid :: diesel_impls :: Uuid)]
     version: Option<::rosetta_uuid::Uuid>,
 }
-:: diesel_builders :: prelude :: fk ! ((directus_revisions :: activity) -> (:: emi_deprecated_models_directus_activity :: directus_activity :: id));
-:: diesel_builders :: prelude :: fk ! ((directus_revisions :: parent) -> (directus_revisions :: id));
-:: diesel_builders :: prelude :: fk ! ((directus_revisions :: version) -> (:: emi_deprecated_models_directus_versions :: directus_versions :: id));
+:: diesel_builders :: prelude :: fpk ! (directus_revisions :: activity -> :: emi_deprecated_models_directus_activity :: directus_activity);
+:: diesel_builders :: prelude :: fpk ! (directus_revisions :: parent -> directus_revisions);
+:: diesel_builders :: prelude :: fpk ! (directus_revisions :: version -> :: emi_deprecated_models_directus_versions :: directus_versions);

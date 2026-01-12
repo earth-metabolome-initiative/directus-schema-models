@@ -4,12 +4,12 @@
     Clone,
     Debug,
     PartialEq,
-    serde :: Serialize,
-    serde :: Deserialize,
-    diesel :: Queryable,
-    diesel :: Selectable,
-    diesel :: Identifiable,
-    diesel_builders :: prelude :: TableModel,
+    :: serde :: Serialize,
+    :: serde :: Deserialize,
+    :: diesel :: Queryable,
+    :: diesel :: Selectable,
+    :: diesel :: Identifiable,
+    :: diesel_builders :: prelude :: TableModel,
 )]
 /// Struct representing a row in the `Field_Data` table.
 #[table_model(surrogate_key)]
@@ -115,5 +115,5 @@ pub struct FieldDatum {
     uuid_qfield: Option<String>,
 }
 ::diesel_builders::prelude::unique_index!(Field_Data::sample_id);
-:: diesel_builders :: prelude :: fk ! ((Field_Data :: user_created) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
-:: diesel_builders :: prelude :: fk ! ((Field_Data :: user_updated) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
+:: diesel_builders :: prelude :: fpk ! (Field_Data :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);
+:: diesel_builders :: prelude :: fpk ! (Field_Data :: user_updated -> :: emi_deprecated_models_directus_users :: directus_users);

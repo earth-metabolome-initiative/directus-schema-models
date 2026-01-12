@@ -5,12 +5,12 @@
     Hash,
     Eq,
     PartialEq,
-    serde :: Serialize,
-    serde :: Deserialize,
-    diesel :: Queryable,
-    diesel :: Selectable,
-    diesel :: Identifiable,
-    diesel_builders :: prelude :: TableModel,
+    :: serde :: Serialize,
+    :: serde :: Deserialize,
+    :: diesel :: Queryable,
+    :: diesel :: Selectable,
+    :: diesel :: Identifiable,
+    :: diesel_builders :: prelude :: TableModel,
 )]
 /// Struct representing a row in the `directus_collections` table.
 #[diesel(primary_key(collection))]
@@ -79,4 +79,4 @@ pub struct DirectusCollection {
     #[table_model(default = false)]
     versioning: bool,
 }
-:: diesel_builders :: prelude :: fk ! ((directus_collections :: group) -> (directus_collections :: collection));
+:: diesel_builders :: prelude :: fpk ! (directus_collections :: group -> directus_collections);

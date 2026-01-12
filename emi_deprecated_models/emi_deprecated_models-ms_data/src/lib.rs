@@ -8,14 +8,20 @@
     PartialOrd,
     Eq,
     PartialEq,
-    serde :: Serialize,
-    serde :: Deserialize,
-    diesel :: Queryable,
-    diesel :: Selectable,
-    diesel :: Identifiable,
-    diesel_builders :: prelude :: TableModel,
+    :: serde :: Serialize,
+    :: serde :: Deserialize,
+    :: diesel :: Queryable,
+    :: diesel :: Selectable,
+    :: diesel :: Identifiable,
+    :: diesel :: Associations,
+    :: diesel_builders :: prelude :: TableModel,
 )]
 /// Struct representing a row in the `MS_Data` table.
+# [diesel (belongs_to (emi_deprecated_models_batches :: Batch , foreign_key = batch))]
+# [diesel (belongs_to (emi_deprecated_models_injection_methods :: InjectionMethod , foreign_key = injection_method))]
+# [diesel (belongs_to (emi_deprecated_models_si_units :: SiUnit , foreign_key = injection_volume_unit))]
+# [diesel (belongs_to (emi_deprecated_models_instruments :: Instrument , foreign_key = instrument_used))]
+# [diesel (belongs_to (emi_deprecated_models_containers :: Container , foreign_key = parent_sample_container))]
 #[table_model(surrogate_key)]
 # [diesel (table_name = MS_Data)]
 pub struct MsDatum {
@@ -63,10 +69,10 @@ pub struct MsDatum {
     processed: Option<bool>,
 }
 ::diesel_builders::prelude::unique_index!(MS_Data::filename);
-:: diesel_builders :: prelude :: fk ! ((MS_Data :: batch) -> (:: emi_deprecated_models_batches :: Batches :: id));
-:: diesel_builders :: prelude :: fk ! ((MS_Data :: injection_method) -> (:: emi_deprecated_models_injection_methods :: Injection_Methods :: id));
-:: diesel_builders :: prelude :: fk ! ((MS_Data :: injection_volume_unit) -> (:: emi_deprecated_models_si_units :: SI_Units :: id));
-:: diesel_builders :: prelude :: fk ! ((MS_Data :: instrument_used) -> (:: emi_deprecated_models_instruments :: Instruments :: id));
-:: diesel_builders :: prelude :: fk ! ((MS_Data :: parent_sample_container) -> (:: emi_deprecated_models_containers :: Containers :: id));
-:: diesel_builders :: prelude :: fk ! ((MS_Data :: user_created) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
-:: diesel_builders :: prelude :: fk ! ((MS_Data :: user_updated) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
+:: diesel_builders :: prelude :: fpk ! (MS_Data :: batch -> :: emi_deprecated_models_batches :: Batches);
+:: diesel_builders :: prelude :: fpk ! (MS_Data :: injection_method -> :: emi_deprecated_models_injection_methods :: Injection_Methods);
+:: diesel_builders :: prelude :: fpk ! (MS_Data :: injection_volume_unit -> :: emi_deprecated_models_si_units :: SI_Units);
+:: diesel_builders :: prelude :: fpk ! (MS_Data :: instrument_used -> :: emi_deprecated_models_instruments :: Instruments);
+:: diesel_builders :: prelude :: fpk ! (MS_Data :: parent_sample_container -> :: emi_deprecated_models_containers :: Containers);
+:: diesel_builders :: prelude :: fpk ! (MS_Data :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);
+:: diesel_builders :: prelude :: fpk ! (MS_Data :: user_updated -> :: emi_deprecated_models_directus_users :: directus_users);

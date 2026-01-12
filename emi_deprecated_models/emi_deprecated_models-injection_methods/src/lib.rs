@@ -8,12 +8,12 @@
     PartialOrd,
     Eq,
     PartialEq,
-    serde :: Serialize,
-    serde :: Deserialize,
-    diesel :: Queryable,
-    diesel :: Selectable,
-    diesel :: Identifiable,
-    diesel_builders :: prelude :: TableModel,
+    :: serde :: Serialize,
+    :: serde :: Deserialize,
+    :: diesel :: Queryable,
+    :: diesel :: Selectable,
+    :: diesel :: Identifiable,
+    :: diesel_builders :: prelude :: TableModel,
 )]
 /// Struct representing a row in the `Injection_Methods` table.
 #[table_model(surrogate_key)]
@@ -48,5 +48,5 @@ pub struct InjectionMethod {
     method_description: Option<String>,
 }
 ::diesel_builders::prelude::unique_index!(Injection_Methods::method_name);
-:: diesel_builders :: prelude :: fk ! ((Injection_Methods :: user_created) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
-:: diesel_builders :: prelude :: fk ! ((Injection_Methods :: user_updated) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
+:: diesel_builders :: prelude :: fpk ! (Injection_Methods :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);
+:: diesel_builders :: prelude :: fpk ! (Injection_Methods :: user_updated -> :: emi_deprecated_models_directus_users :: directus_users);

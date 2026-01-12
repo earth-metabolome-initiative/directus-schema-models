@@ -5,14 +5,17 @@
     Hash,
     Eq,
     PartialEq,
-    serde :: Serialize,
-    serde :: Deserialize,
-    diesel :: Queryable,
-    diesel :: Selectable,
-    diesel :: Identifiable,
-    diesel_builders :: prelude :: TableModel,
+    :: serde :: Serialize,
+    :: serde :: Deserialize,
+    :: diesel :: Queryable,
+    :: diesel :: Selectable,
+    :: diesel :: Identifiable,
+    :: diesel :: Associations,
+    :: diesel_builders :: prelude :: TableModel,
 )]
 /// Struct representing a row in the `directus_panels` table.
+# [diesel (belongs_to (emi_deprecated_models_directus_dashboards :: DirectusDashboard , foreign_key = dashboard))]
+# [diesel (belongs_to (emi_deprecated_models_directus_users :: DirectusUser , foreign_key = user_created))]
 # [diesel (table_name = directus_panels)]
 pub struct DirectusPanel {
     /// Field representing the `id` column in table `directus_panels`.
@@ -53,5 +56,5 @@ pub struct DirectusPanel {
     # [diesel (sql_type = :: rosetta_uuid :: diesel_impls :: Uuid)]
     user_created: Option<::rosetta_uuid::Uuid>,
 }
-:: diesel_builders :: prelude :: fk ! ((directus_panels :: dashboard) -> (:: emi_deprecated_models_directus_dashboards :: directus_dashboards :: id));
-:: diesel_builders :: prelude :: fk ! ((directus_panels :: user_created) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
+:: diesel_builders :: prelude :: fpk ! (directus_panels :: dashboard -> :: emi_deprecated_models_directus_dashboards :: directus_dashboards);
+:: diesel_builders :: prelude :: fpk ! (directus_panels :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);

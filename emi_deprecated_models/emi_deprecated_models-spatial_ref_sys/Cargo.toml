@@ -8,7 +8,7 @@ edition.workspace = true
 serde.workspace = true
 diesel-builders.workspace = true
 diesel.workspace = true
-validation_errors.workspace = true
+validation-errors.workspace = true
 
 [lints]
 workspace = true

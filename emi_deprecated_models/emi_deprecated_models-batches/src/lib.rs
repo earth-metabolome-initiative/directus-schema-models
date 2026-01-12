@@ -8,14 +8,16 @@
     PartialOrd,
     Eq,
     PartialEq,
-    serde :: Serialize,
-    serde :: Deserialize,
-    diesel :: Queryable,
-    diesel :: Selectable,
-    diesel :: Identifiable,
-    diesel_builders :: prelude :: TableModel,
+    :: serde :: Serialize,
+    :: serde :: Deserialize,
+    :: diesel :: Queryable,
+    :: diesel :: Selectable,
+    :: diesel :: Identifiable,
+    :: diesel :: Associations,
+    :: diesel_builders :: prelude :: TableModel,
 )]
 /// Struct representing a row in the `Batches` table.
+# [diesel (belongs_to (emi_deprecated_models_batch_types :: BatchType , foreign_key = batch_type))]
 #[table_model(surrogate_key)]
 # [diesel (table_name = Batches)]
 pub struct Batch {
@@ -54,6 +56,6 @@ pub struct Batch {
 }
 ::diesel_builders::prelude::unique_index!(Batches::batch_id);
 ::diesel_builders::prelude::unique_index!(Batches::old_id);
-:: diesel_builders :: prelude :: fk ! ((Batches :: batch_type) -> (:: emi_deprecated_models_batch_types :: Batch_Types :: id));
-:: diesel_builders :: prelude :: fk ! ((Batches :: user_created) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
-:: diesel_builders :: prelude :: fk ! ((Batches :: user_updated) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
+:: diesel_builders :: prelude :: fpk ! (Batches :: batch_type -> :: emi_deprecated_models_batch_types :: Batch_Types);
+:: diesel_builders :: prelude :: fpk ! (Batches :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);
+:: diesel_builders :: prelude :: fpk ! (Batches :: user_updated -> :: emi_deprecated_models_directus_users :: directus_users);

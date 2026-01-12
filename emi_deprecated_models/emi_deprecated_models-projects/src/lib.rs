@@ -8,14 +8,16 @@
     PartialOrd,
     Eq,
     PartialEq,
-    serde :: Serialize,
-    serde :: Deserialize,
-    diesel :: Queryable,
-    diesel :: Selectable,
-    diesel :: Identifiable,
-    diesel_builders :: prelude :: TableModel,
+    :: serde :: Serialize,
+    :: serde :: Deserialize,
+    :: diesel :: Queryable,
+    :: diesel :: Selectable,
+    :: diesel :: Identifiable,
+    :: diesel :: Associations,
+    :: diesel_builders :: prelude :: TableModel,
 )]
 /// Struct representing a row in the `Projects` table.
+# [diesel (belongs_to (emi_deprecated_models_batches :: Batch , foreign_key = batch))]
 #[table_model(surrogate_key)]
 # [diesel (table_name = Projects)]
 pub struct Project {
@@ -50,7 +52,7 @@ pub struct Project {
 }
 ::diesel_builders::prelude::unique_index!(Projects::project_id);
 ::diesel_builders::prelude::unique_index!(Projects::batch);
-:: diesel_builders :: prelude :: fk ! ((Projects :: batch) -> (:: emi_deprecated_models_batches :: Batches :: id));
-:: diesel_builders :: prelude :: fk ! ((Projects :: parent_project) -> (Projects :: id));
-:: diesel_builders :: prelude :: fk ! ((Projects :: user_created) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
-:: diesel_builders :: prelude :: fk ! ((Projects :: user_updated) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
+:: diesel_builders :: prelude :: fpk ! (Projects :: batch -> :: emi_deprecated_models_batches :: Batches);
+:: diesel_builders :: prelude :: fpk ! (Projects :: parent_project -> Projects);
+:: diesel_builders :: prelude :: fpk ! (Projects :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);
+:: diesel_builders :: prelude :: fpk ! (Projects :: user_updated -> :: emi_deprecated_models_directus_users :: directus_users);

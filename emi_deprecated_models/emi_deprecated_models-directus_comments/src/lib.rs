@@ -7,12 +7,12 @@
     PartialOrd,
     Eq,
     PartialEq,
-    serde :: Serialize,
-    serde :: Deserialize,
-    diesel :: Queryable,
-    diesel :: Selectable,
-    diesel :: Identifiable,
-    diesel_builders :: prelude :: TableModel,
+    :: serde :: Serialize,
+    :: serde :: Deserialize,
+    :: diesel :: Queryable,
+    :: diesel :: Selectable,
+    :: diesel :: Identifiable,
+    :: diesel_builders :: prelude :: TableModel,
 )]
 /// Struct representing a row in the `directus_comments` table.
 # [diesel (table_name = directus_comments)]
@@ -45,5 +45,5 @@ pub struct DirectusComment {
     # [diesel (sql_type = :: rosetta_uuid :: diesel_impls :: Uuid)]
     user_updated: Option<::rosetta_uuid::Uuid>,
 }
-:: diesel_builders :: prelude :: fk ! ((directus_comments :: user_created) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
-:: diesel_builders :: prelude :: fk ! ((directus_comments :: user_updated) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
+:: diesel_builders :: prelude :: fpk ! (directus_comments :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);
+:: diesel_builders :: prelude :: fpk ! (directus_comments :: user_updated -> :: emi_deprecated_models_directus_users :: directus_users);

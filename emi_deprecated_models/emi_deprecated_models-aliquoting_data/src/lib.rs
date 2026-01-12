@@ -5,14 +5,16 @@
     Debug,
     PartialOrd,
     PartialEq,
-    serde :: Serialize,
-    serde :: Deserialize,
-    diesel :: Queryable,
-    diesel :: Selectable,
-    diesel :: Identifiable,
-    diesel_builders :: prelude :: TableModel,
+    :: serde :: Serialize,
+    :: serde :: Deserialize,
+    :: diesel :: Queryable,
+    :: diesel :: Selectable,
+    :: diesel :: Identifiable,
+    :: diesel :: Associations,
+    :: diesel_builders :: prelude :: TableModel,
 )]
 /// Struct representing a row in the `Aliquoting_Data` table.
+# [diesel (belongs_to (emi_deprecated_models_si_units :: SiUnit , foreign_key = aliquot_volume_unit))]
 #[table_model(surrogate_key)]
 # [diesel (table_name = Aliquoting_Data)]
 pub struct AliquotingDatum {
@@ -53,9 +55,9 @@ pub struct AliquotingDatum {
     parent_sample_container: i32,
 }
 ::diesel_builders::prelude::unique_index!(Aliquoting_Data::sample_container);
-:: diesel_builders :: prelude :: fk ! ((Aliquoting_Data :: aliquot_volume_unit) -> (:: emi_deprecated_models_si_units :: SI_Units :: id));
-:: diesel_builders :: prelude :: fk ! ((Aliquoting_Data :: parent_container) -> (:: emi_deprecated_models_containers :: Containers :: id));
-:: diesel_builders :: prelude :: fk ! ((Aliquoting_Data :: parent_sample_container) -> (:: emi_deprecated_models_containers :: Containers :: id));
-:: diesel_builders :: prelude :: fk ! ((Aliquoting_Data :: sample_container) -> (:: emi_deprecated_models_containers :: Containers :: id));
-:: diesel_builders :: prelude :: fk ! ((Aliquoting_Data :: user_created) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
-:: diesel_builders :: prelude :: fk ! ((Aliquoting_Data :: user_updated) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
+:: diesel_builders :: prelude :: fpk ! (Aliquoting_Data :: aliquot_volume_unit -> :: emi_deprecated_models_si_units :: SI_Units);
+:: diesel_builders :: prelude :: fpk ! (Aliquoting_Data :: parent_container -> :: emi_deprecated_models_containers :: Containers);
+:: diesel_builders :: prelude :: fpk ! (Aliquoting_Data :: parent_sample_container -> :: emi_deprecated_models_containers :: Containers);
+:: diesel_builders :: prelude :: fpk ! (Aliquoting_Data :: sample_container -> :: emi_deprecated_models_containers :: Containers);
+:: diesel_builders :: prelude :: fpk ! (Aliquoting_Data :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);
+:: diesel_builders :: prelude :: fpk ! (Aliquoting_Data :: user_updated -> :: emi_deprecated_models_directus_users :: directus_users);

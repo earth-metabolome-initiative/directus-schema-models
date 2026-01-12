@@ -8,12 +8,12 @@
     PartialOrd,
     Eq,
     PartialEq,
-    serde :: Serialize,
-    serde :: Deserialize,
-    diesel :: Queryable,
-    diesel :: Selectable,
-    diesel :: Identifiable,
-    diesel_builders :: prelude :: TableModel,
+    :: serde :: Serialize,
+    :: serde :: Deserialize,
+    :: diesel :: Queryable,
+    :: diesel :: Selectable,
+    :: diesel :: Identifiable,
+    :: diesel_builders :: prelude :: TableModel,
 )]
 /// Struct representing a row in the `Extraction_Methods` table.
 #[table_model(surrogate_key)]
@@ -46,5 +46,5 @@ pub struct ExtractionMethod {
     /// `Extraction_Methods`.
     method_description: String,
 }
-:: diesel_builders :: prelude :: fk ! ((Extraction_Methods :: user_created) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
-:: diesel_builders :: prelude :: fk ! ((Extraction_Methods :: user_updated) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
+:: diesel_builders :: prelude :: fpk ! (Extraction_Methods :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);
+:: diesel_builders :: prelude :: fpk ! (Extraction_Methods :: user_updated -> :: emi_deprecated_models_directus_users :: directus_users);

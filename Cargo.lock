@@ -272,7 +272,7 @@ checksum = "abd57806937c9cc163efc8ea3910e00a62e2aeb0b8119f1793a978088f8f6b04"
 [[package]]
 name = "diesel"
 version = "2.3.5"
-source = "git+https://github.com/LucaCappelletti94/diesel?branch=future3#6243f4dc88b928bf1e19bdd752191b6475e777b1"
+source = "git+https://github.com/LucaCappelletti94/diesel?branch=future3#c1afd31da99c7b131766edf01a0583702e7ace56"
 dependencies = [
  "bigdecimal",
  "bitflags",
@@ -298,7 +298,7 @@ dependencies = [
 [[package]]
 name = "diesel-builders"
 version = "0.1.0"
-source = "git+https://github.com/LucaCappelletti94/diesel-builders?branch=main#50fc39ff3252c38643620504b888125b468ad812"
+source = "git+https://github.com/LucaCappelletti94/diesel-builders?branch=main#b7855e6eb5428cce477b1a5a4f3891c7844f1e54"
 dependencies = [
  "diesel",
  "diesel-builders-derive",
@@ -310,7 +310,7 @@ dependencies = [
 [[package]]
 name = "diesel-builders-derive"
 version = "0.1.0"
-source = "git+https://github.com/LucaCappelletti94/diesel-builders?branch=main#50fc39ff3252c38643620504b888125b468ad812"
+source = "git+https://github.com/LucaCappelletti94/diesel-builders?branch=main#b7855e6eb5428cce477b1a5a4f3891c7844f1e54"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -320,7 +320,7 @@ dependencies = [
 [[package]]
 name = "diesel-dynamic-schema"
 version = "0.2.4"
-source = "git+https://github.com/LucaCappelletti94/diesel?branch=future3#6243f4dc88b928bf1e19bdd752191b6475e777b1"
+source = "git+https://github.com/LucaCappelletti94/diesel?branch=future3#c1afd31da99c7b131766edf01a0583702e7ace56"
 dependencies = [
  "diesel",
 ]
@@ -328,7 +328,7 @@ dependencies = [
 [[package]]
 name = "diesel_derives"
 version = "2.3.6"
-source = "git+https://github.com/LucaCappelletti94/diesel?branch=future3#6243f4dc88b928bf1e19bdd752191b6475e777b1"
+source = "git+https://github.com/LucaCappelletti94/diesel?branch=future3#c1afd31da99c7b131766edf01a0583702e7ace56"
 dependencies = [
  "diesel_table_macro_syntax",
  "dsl_auto_type",
@@ -340,7 +340,7 @@ dependencies = [
 [[package]]
 name = "diesel_table_macro_syntax"
 version = "0.3.0"
-source = "git+https://github.com/LucaCappelletti94/diesel?branch=future3#6243f4dc88b928bf1e19bdd752191b6475e777b1"
+source = "git+https://github.com/LucaCappelletti94/diesel?branch=future3#c1afd31da99c7b131766edf01a0583702e7ace56"
 dependencies = [
  "syn",
 ]
@@ -365,7 +365,7 @@ checksum = "117240f60069e65410b3ae1bb213295bd828f707b5bec6596a1afc8793ce0cbc"
 [[package]]
 name = "dsl_auto_type"
 version = "0.2.0"
-source = "git+https://github.com/LucaCappelletti94/diesel?branch=future3#6243f4dc88b928bf1e19bdd752191b6475e777b1"
+source = "git+https://github.com/LucaCappelletti94/diesel?branch=future3#c1afd31da99c7b131766edf01a0583702e7ace56"
 dependencies = [
  "darling 0.21.3",
  "either",
@@ -447,7 +447,7 @@ dependencies = [
  "diesel-builders",
  "postgis_diesel",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -462,7 +462,7 @@ dependencies = [
  "rosetta_timestamp",
  "rosetta_uuid",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -475,7 +475,7 @@ dependencies = [
  "rosetta_timestamp",
  "rosetta_uuid",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -489,7 +489,7 @@ dependencies = [
  "rosetta_timestamp",
  "rosetta_uuid",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -502,7 +502,7 @@ dependencies = [
  "rosetta_timestamp",
  "rosetta_uuid",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -516,7 +516,7 @@ dependencies = [
  "rosetta_timestamp",
  "rosetta_uuid",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -532,7 +532,7 @@ dependencies = [
  "rosetta_timestamp",
  "rosetta_uuid",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -546,7 +546,7 @@ dependencies = [
  "rosetta_timestamp",
  "rosetta_uuid",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -559,7 +559,7 @@ dependencies = [
  "rosetta_timestamp",
  "rosetta_uuid",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -574,7 +574,7 @@ dependencies = [
  "rosetta_timestamp",
  "rosetta_uuid",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -588,7 +588,7 @@ dependencies = [
  "emi_deprecated_models-directus_users",
  "rosetta_uuid",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -600,7 +600,7 @@ dependencies = [
  "rosetta_timestamp",
  "rosetta_uuid",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -611,7 +611,7 @@ dependencies = [
  "diesel-builders",
  "serde",
  "serde_json",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -624,7 +624,7 @@ dependencies = [
  "rosetta_timestamp",
  "rosetta_uuid",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -637,7 +637,7 @@ dependencies = [
  "rosetta_timestamp",
  "rosetta_uuid",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -648,7 +648,7 @@ dependencies = [
  "diesel-builders",
  "rosetta_uuid",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -659,7 +659,7 @@ dependencies = [
  "diesel-builders",
  "serde",
  "serde_json",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -674,7 +674,7 @@ dependencies = [
  "rosetta_uuid",
  "serde",
  "serde_json",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -688,7 +688,7 @@ dependencies = [
  "rosetta_uuid",
  "serde",
  "serde_json",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -699,7 +699,7 @@ dependencies = [
  "diesel-builders",
  "rosetta_uuid",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -710,7 +710,7 @@ dependencies = [
  "diesel-builders",
  "rosetta_timestamp",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -723,7 +723,7 @@ dependencies = [
  "rosetta_timestamp",
  "rosetta_uuid",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -738,7 +738,7 @@ dependencies = [
  "rosetta_uuid",
  "serde",
  "serde_json",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -753,7 +753,7 @@ dependencies = [
  "rosetta_uuid",
  "serde",
  "serde_json",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -766,7 +766,7 @@ dependencies = [
  "rosetta_uuid",
  "serde",
  "serde_json",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -777,7 +777,7 @@ dependencies = [
  "diesel-builders",
  "rosetta_uuid",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -791,7 +791,7 @@ dependencies = [
  "rosetta_uuid",
  "serde",
  "serde_json",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -801,7 +801,7 @@ dependencies = [
  "diesel",
  "diesel-builders",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -815,7 +815,7 @@ dependencies = [
  "rosetta_uuid",
  "serde",
  "serde_json",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -826,7 +826,7 @@ dependencies = [
  "diesel-builders",
  "rosetta_uuid",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -840,7 +840,7 @@ dependencies = [
  "rosetta_timestamp",
  "rosetta_uuid",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -855,7 +855,7 @@ dependencies = [
  "rosetta_uuid",
  "serde",
  "serde_json",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -870,7 +870,7 @@ dependencies = [
  "rosetta_timestamp",
  "rosetta_uuid",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -881,7 +881,7 @@ dependencies = [
  "diesel-builders",
  "rosetta_uuid",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -895,7 +895,7 @@ dependencies = [
  "rosetta_uuid",
  "serde",
  "serde_json",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -910,7 +910,7 @@ dependencies = [
  "rosetta_uuid",
  "serde",
  "serde_json",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -923,7 +923,7 @@ dependencies = [
  "rosetta_uuid",
  "serde",
  "serde_json",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -939,7 +939,7 @@ dependencies = [
  "rosetta_timestamp",
  "rosetta_uuid",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -957,7 +957,7 @@ dependencies = [
  "rosetta_timestamp",
  "rosetta_uuid",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -970,7 +970,7 @@ dependencies = [
  "rosetta_timestamp",
  "rosetta_uuid",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -984,7 +984,7 @@ dependencies = [
  "rosetta_timestamp",
  "rosetta_uuid",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -997,7 +997,7 @@ dependencies = [
  "rosetta_timestamp",
  "rosetta_uuid",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -1012,7 +1012,7 @@ dependencies = [
  "rosetta_timestamp",
  "rosetta_uuid",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -1025,7 +1025,7 @@ dependencies = [
  "rosetta_timestamp",
  "rosetta_uuid",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -1040,7 +1040,7 @@ dependencies = [
  "rosetta_timestamp",
  "rosetta_uuid",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -1058,7 +1058,7 @@ dependencies = [
  "rosetta_timestamp",
  "rosetta_uuid",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -1072,7 +1072,7 @@ dependencies = [
  "rosetta_timestamp",
  "rosetta_uuid",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -1088,7 +1088,7 @@ dependencies = [
  "rosetta_timestamp",
  "rosetta_uuid",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -1101,7 +1101,7 @@ dependencies = [
  "rosetta_timestamp",
  "rosetta_uuid",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -1111,7 +1111,7 @@ dependencies = [
  "diesel",
  "diesel-builders",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -1124,7 +1124,7 @@ dependencies = [
  "rosetta_timestamp",
  "rosetta_uuid",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -1137,7 +1137,7 @@ dependencies = [
  "rosetta_timestamp",
  "rosetta_uuid",
  "serde",
- "validation_errors",
+ "validation-errors",
 ]
 
 [[package]]
@@ -1716,7 +1716,7 @@ checksum = "9b4f627cb1b25917193a259e49bdad08f671f8d9708acfd5fe0a8c1455d87220"
 [[package]]
 name = "pg_diesel"
 version = "0.1.0"
-source = "git+https://github.com/earth-metabolome-initiative/pg_diesel?branch=main#7d8cbde1bcb2f932e646609e11a957c6a5fcf758"
+source = "git+https://github.com/earth-metabolome-initiative/pg_diesel?branch=main#6d8e79f59f05b9965f3b2549668335174dd79f31"
 dependencies = [
  "diesel",
  "ipnetwork",
@@ -1895,7 +1895,7 @@ checksum = "7a2d987857b319362043e95f5353c0535c1f58eec5336fdfcf626430af7def58"
 [[package]]
 name = "rosetta_timestamp"
 version = "0.1.0"
-source = "git+https://github.com/earth-metabolome-initiative/emi-monorepo?branch=postgres-crate#e8f59fc3a57c7db0c9122761bf0e1cedd58b56db"
+source = "git+https://github.com/earth-metabolome-initiative/emi-monorepo?branch=postgres-crate#dc7f8d9b3982e57089871461c0fdc32e98568c67"
 dependencies = [
  "chrono",
  "diesel",
@@ -1905,7 +1905,7 @@ dependencies = [
 [[package]]
 name = "rosetta_uuid"
 version = "0.1.0"
-source = "git+https://github.com/earth-metabolome-initiative/emi-monorepo?branch=postgres-crate#e8f59fc3a57c7db0c9122761bf0e1cedd58b56db"
+source = "git+https://github.com/earth-metabolome-initiative/emi-monorepo?branch=postgres-crate#dc7f8d9b3982e57089871461c0fdc32e98568c67"
 dependencies = [
  "diesel",
  "serde",
@@ -2019,7 +2019,7 @@ checksum = "67b1b7a3b5fe4f1376887184045fcf45c69e92af734b7aaddc05fb777b6fbd03"
 [[package]]
 name = "sql-traits"
 version = "0.1.0"
-source = "git+https://github.com/earth-metabolome-initiative/sql-traits?branch=main#28363f9369607f703c3973c4c51e336986b623d9"
+source = "git+https://github.com/earth-metabolome-initiative/sql-traits?branch=main#5e2da53ae124597cadd4eac430fe0c436daccfeb"
 dependencies = [
  "geometric-traits",
  "git2",
@@ -2044,7 +2044,7 @@ dependencies = [
 [[package]]
 name = "sql_relations"
 version = "0.1.0"
-source = "git+https://github.com/earth-metabolome-initiative/synql?branch=main#fe3bd304d26f4bf29ec53c7b154e9667ab204dad"
+source = "git+https://github.com/earth-metabolome-initiative/synql?branch=main#6ae3c128a5355d614f4c13fd64301c9a2bca360a"
 dependencies = [
  "sql-traits",
 ]
@@ -2139,7 +2139,7 @@ dependencies = [
 [[package]]
 name = "synql"
 version = "0.1.0"
-source = "git+https://github.com/earth-metabolome-initiative/synql?branch=main#fe3bd304d26f4bf29ec53c7b154e9667ab204dad"
+source = "git+https://github.com/earth-metabolome-initiative/synql?branch=main#6ae3c128a5355d614f4c13fd64301c9a2bca360a"
 dependencies = [
  "cached",
  "chrono",
@@ -2291,9 +2291,9 @@ dependencies = [
 
 [[package]]
 name = "toml"
-version = "0.9.10+spec-1.1.0"
+version = "0.9.11+spec-1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0825052159284a1a8b4d6c0c86cbc801f2da5afd2b225fa548c72f2e74002f48"
+checksum = "f3afc9a848309fe1aaffaed6e1546a7a14de1f935dc9d89d32afd9a44bab7c46"
 dependencies = [
  "indexmap",
  "serde_core",
@@ -2662,9 +2662,14 @@ dependencies = [
 ]
 
 [[package]]
-name = "validation_errors"
+name = "validation-errors"
 version = "0.1.0"
-source = "git+https://github.com/earth-metabolome-initiative/emi-monorepo?branch=postgres-crate#e8f59fc3a57c7db0c9122761bf0e1cedd58b56db"
+source = "git+https://github.com/LucaCappelletti94/diesel-builders?branch=main#b7855e6eb5428cce477b1a5a4f3891c7844f1e54"
+dependencies = [
+ "diesel",
+ "diesel-builders",
+ "thiserror",
+]
 
 [[package]]
 name = "vcpkg"
@@ -3000,6 +3005,6 @@ dependencies = [
 
 [[package]]
 name = "zmij"
-version = "1.0.12"
+version = "1.0.13"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2fc5a66a20078bf1251bde995aa2fdcc4b800c70b5d92dd2c62abc5c60f679f8"
+checksum = "ac93432f5b761b22864c774aac244fa5c0fd877678a4c37ebf6cf42208f9c9ec"

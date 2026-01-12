@@ -5,14 +5,17 @@
     Hash,
     Eq,
     PartialEq,
-    serde :: Serialize,
-    serde :: Deserialize,
-    diesel :: Queryable,
-    diesel :: Selectable,
-    diesel :: Identifiable,
-    diesel_builders :: prelude :: TableModel,
+    :: serde :: Serialize,
+    :: serde :: Deserialize,
+    :: diesel :: Queryable,
+    :: diesel :: Selectable,
+    :: diesel :: Identifiable,
+    :: diesel :: Associations,
+    :: diesel_builders :: prelude :: TableModel,
 )]
 /// Struct representing a row in the `directus_settings` table.
+# [diesel (belongs_to (emi_deprecated_models_directus_roles :: DirectusRole , foreign_key = public_registration_role))]
+# [diesel (belongs_to (emi_deprecated_models_directus_folders :: DirectusFolder , foreign_key = storage_default_folder))]
 #[table_model(surrogate_key)]
 # [diesel (table_name = directus_settings)]
 pub struct DirectusSetting {
@@ -136,9 +139,9 @@ pub struct DirectusSetting {
     # [diesel (sql_type = :: diesel :: sql_types :: Json)]
     visual_editor_urls: Option<::serde_json::Value>,
 }
-:: diesel_builders :: prelude :: fk ! ((directus_settings :: project_logo) -> (:: emi_deprecated_models_directus_files :: directus_files :: id));
-:: diesel_builders :: prelude :: fk ! ((directus_settings :: public_background) -> (:: emi_deprecated_models_directus_files :: directus_files :: id));
-:: diesel_builders :: prelude :: fk ! ((directus_settings :: public_favicon) -> (:: emi_deprecated_models_directus_files :: directus_files :: id));
-:: diesel_builders :: prelude :: fk ! ((directus_settings :: public_foreground) -> (:: emi_deprecated_models_directus_files :: directus_files :: id));
-:: diesel_builders :: prelude :: fk ! ((directus_settings :: public_registration_role) -> (:: emi_deprecated_models_directus_roles :: directus_roles :: id));
-:: diesel_builders :: prelude :: fk ! ((directus_settings :: storage_default_folder) -> (:: emi_deprecated_models_directus_folders :: directus_folders :: id));
+:: diesel_builders :: prelude :: fpk ! (directus_settings :: project_logo -> :: emi_deprecated_models_directus_files :: directus_files);
+:: diesel_builders :: prelude :: fpk ! (directus_settings :: public_background -> :: emi_deprecated_models_directus_files :: directus_files);
+:: diesel_builders :: prelude :: fpk ! (directus_settings :: public_favicon -> :: emi_deprecated_models_directus_files :: directus_files);
+:: diesel_builders :: prelude :: fpk ! (directus_settings :: public_foreground -> :: emi_deprecated_models_directus_files :: directus_files);
+:: diesel_builders :: prelude :: fpk ! (directus_settings :: public_registration_role -> :: emi_deprecated_models_directus_roles :: directus_roles);
+:: diesel_builders :: prelude :: fpk ! (directus_settings :: storage_default_folder -> :: emi_deprecated_models_directus_folders :: directus_folders);

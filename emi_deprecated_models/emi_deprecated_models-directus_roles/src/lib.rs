@@ -7,12 +7,12 @@
     PartialOrd,
     Eq,
     PartialEq,
-    serde :: Serialize,
-    serde :: Deserialize,
-    diesel :: Queryable,
-    diesel :: Selectable,
-    diesel :: Identifiable,
-    diesel_builders :: prelude :: TableModel,
+    :: serde :: Serialize,
+    :: serde :: Deserialize,
+    :: diesel :: Queryable,
+    :: diesel :: Selectable,
+    :: diesel :: Identifiable,
+    :: diesel_builders :: prelude :: TableModel,
 )]
 /// Struct representing a row in the `directus_roles` table.
 # [diesel (table_name = directus_roles)]
@@ -31,4 +31,4 @@ pub struct DirectusRole {
     # [diesel (sql_type = :: rosetta_uuid :: diesel_impls :: Uuid)]
     parent: Option<::rosetta_uuid::Uuid>,
 }
-:: diesel_builders :: prelude :: fk ! ((directus_roles :: parent) -> (directus_roles :: id));
+:: diesel_builders :: prelude :: fpk ! (directus_roles :: parent -> directus_roles);

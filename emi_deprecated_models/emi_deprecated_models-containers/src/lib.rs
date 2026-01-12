@@ -8,14 +8,17 @@
     PartialOrd,
     Eq,
     PartialEq,
-    serde :: Serialize,
-    serde :: Deserialize,
-    diesel :: Queryable,
-    diesel :: Selectable,
-    diesel :: Identifiable,
-    diesel_builders :: prelude :: TableModel,
+    :: serde :: Serialize,
+    :: serde :: Deserialize,
+    :: diesel :: Queryable,
+    :: diesel :: Selectable,
+    :: diesel :: Identifiable,
+    :: diesel :: Associations,
+    :: diesel_builders :: prelude :: TableModel,
 )]
 /// Struct representing a row in the `Containers` table.
+# [diesel (belongs_to (emi_deprecated_models_container_models :: ContainerModel , foreign_key = container_model))]
+# [diesel (belongs_to (emi_deprecated_models_universities :: University , foreign_key = location))]
 #[table_model(surrogate_key)]
 # [diesel (table_name = Containers)]
 pub struct Container {
@@ -67,8 +70,8 @@ pub struct Container {
 }
 ::diesel_builders::prelude::unique_index!(Containers::container_id);
 ::diesel_builders::prelude::unique_index!(Containers::old_id);
-:: diesel_builders :: prelude :: fk ! ((Containers :: container_model) -> (:: emi_deprecated_models_container_models :: Container_Models :: id));
-:: diesel_builders :: prelude :: fk ! ((Containers :: location) -> (:: emi_deprecated_models_universities :: Universities :: id));
-:: diesel_builders :: prelude :: fk ! ((Containers :: parent_container) -> (Containers :: id));
-:: diesel_builders :: prelude :: fk ! ((Containers :: user_created) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
-:: diesel_builders :: prelude :: fk ! ((Containers :: user_updated) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
+:: diesel_builders :: prelude :: fpk ! (Containers :: container_model -> :: emi_deprecated_models_container_models :: Container_Models);
+:: diesel_builders :: prelude :: fpk ! (Containers :: location -> :: emi_deprecated_models_universities :: Universities);
+:: diesel_builders :: prelude :: fpk ! (Containers :: parent_container -> Containers);
+:: diesel_builders :: prelude :: fpk ! (Containers :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);
+:: diesel_builders :: prelude :: fpk ! (Containers :: user_updated -> :: emi_deprecated_models_directus_users :: directus_users);

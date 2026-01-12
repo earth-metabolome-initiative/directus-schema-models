@@ -5,12 +5,12 @@
     Debug,
     PartialOrd,
     PartialEq,
-    serde :: Serialize,
-    serde :: Deserialize,
-    diesel :: Queryable,
-    diesel :: Selectable,
-    diesel :: Identifiable,
-    diesel_builders :: prelude :: TableModel,
+    :: serde :: Serialize,
+    :: serde :: Deserialize,
+    :: diesel :: Queryable,
+    :: diesel :: Selectable,
+    :: diesel :: Identifiable,
+    :: diesel_builders :: prelude :: TableModel,
 )]
 /// Struct representing a row in the `SI_Units` table.
 #[table_model(surrogate_key)]
@@ -44,5 +44,5 @@ pub struct SiUnit {
     multiplication_factor: f32,
 }
 ::diesel_builders::prelude::unique_index!(SI_Units::unit_name);
-:: diesel_builders :: prelude :: fk ! ((SI_Units :: user_created) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
-:: diesel_builders :: prelude :: fk ! ((SI_Units :: user_updated) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
+:: diesel_builders :: prelude :: fpk ! (SI_Units :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);
+:: diesel_builders :: prelude :: fpk ! (SI_Units :: user_updated -> :: emi_deprecated_models_directus_users :: directus_users);

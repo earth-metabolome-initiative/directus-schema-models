@@ -7,14 +7,17 @@
     PartialOrd,
     Eq,
     PartialEq,
-    serde :: Serialize,
-    serde :: Deserialize,
-    diesel :: Queryable,
-    diesel :: Selectable,
-    diesel :: Identifiable,
-    diesel_builders :: prelude :: TableModel,
+    :: serde :: Serialize,
+    :: serde :: Deserialize,
+    :: diesel :: Queryable,
+    :: diesel :: Selectable,
+    :: diesel :: Identifiable,
+    :: diesel :: Associations,
+    :: diesel_builders :: prelude :: TableModel,
 )]
 /// Struct representing a row in the `directus_sessions` table.
+# [diesel (belongs_to (emi_deprecated_models_directus_shares :: DirectusShare , foreign_key = share))]
+# [diesel (belongs_to (emi_deprecated_models_directus_users :: DirectusUser , foreign_key = user))]
 #[diesel(primary_key(token))]
 # [diesel (table_name = directus_sessions)]
 pub struct DirectusSession {
@@ -38,5 +41,5 @@ pub struct DirectusSession {
     /// Field representing the `next_token` column in table `directus_sessions`.
     next_token: Option<String>,
 }
-:: diesel_builders :: prelude :: fk ! ((directus_sessions :: share) -> (:: emi_deprecated_models_directus_shares :: directus_shares :: id));
-:: diesel_builders :: prelude :: fk ! ((directus_sessions :: user) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
+:: diesel_builders :: prelude :: fpk ! (directus_sessions :: share -> :: emi_deprecated_models_directus_shares :: directus_shares);
+:: diesel_builders :: prelude :: fpk ! (directus_sessions :: user -> :: emi_deprecated_models_directus_users :: directus_users);

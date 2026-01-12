@@ -5,14 +5,17 @@
     Debug,
     PartialOrd,
     PartialEq,
-    serde :: Serialize,
-    serde :: Deserialize,
-    diesel :: Queryable,
-    diesel :: Selectable,
-    diesel :: Identifiable,
-    diesel_builders :: prelude :: TableModel,
+    :: serde :: Serialize,
+    :: serde :: Deserialize,
+    :: diesel :: Queryable,
+    :: diesel :: Selectable,
+    :: diesel :: Identifiable,
+    :: diesel :: Associations,
+    :: diesel_builders :: prelude :: TableModel,
 )]
 /// Struct representing a row in the `Instruments` table.
+# [diesel (belongs_to (emi_deprecated_models_rooms :: Room , foreign_key = instrument_location))]
+# [diesel (belongs_to (emi_deprecated_models_instrument_models :: InstrumentModel , foreign_key = instrument_model))]
 #[table_model(surrogate_key)]
 # [diesel (table_name = Instruments)]
 pub struct Instrument {
@@ -46,7 +49,7 @@ pub struct Instrument {
     grams: Option<f32>,
 }
 ::diesel_builders::prelude::unique_index!(Instruments::instrument_id);
-:: diesel_builders :: prelude :: fk ! ((Instruments :: instrument_location) -> (:: emi_deprecated_models_rooms :: Rooms :: id));
-:: diesel_builders :: prelude :: fk ! ((Instruments :: instrument_model) -> (:: emi_deprecated_models_instrument_models :: Instrument_Models :: id));
-:: diesel_builders :: prelude :: fk ! ((Instruments :: user_created) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
-:: diesel_builders :: prelude :: fk ! ((Instruments :: user_updated) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
+:: diesel_builders :: prelude :: fpk ! (Instruments :: instrument_location -> :: emi_deprecated_models_rooms :: Rooms);
+:: diesel_builders :: prelude :: fpk ! (Instruments :: instrument_model -> :: emi_deprecated_models_instrument_models :: Instrument_Models);
+:: diesel_builders :: prelude :: fpk ! (Instruments :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);
+:: diesel_builders :: prelude :: fpk ! (Instruments :: user_updated -> :: emi_deprecated_models_directus_users :: directus_users);

@@ -5,14 +5,17 @@
     Hash,
     Eq,
     PartialEq,
-    serde :: Serialize,
-    serde :: Deserialize,
-    diesel :: Queryable,
-    diesel :: Selectable,
-    diesel :: Identifiable,
-    diesel_builders :: prelude :: TableModel,
+    :: serde :: Serialize,
+    :: serde :: Deserialize,
+    :: diesel :: Queryable,
+    :: diesel :: Selectable,
+    :: diesel :: Identifiable,
+    :: diesel :: Associations,
+    :: diesel_builders :: prelude :: TableModel,
 )]
 /// Struct representing a row in the `directus_presets` table.
+# [diesel (belongs_to (emi_deprecated_models_directus_roles :: DirectusRole , foreign_key = role))]
+# [diesel (belongs_to (emi_deprecated_models_directus_users :: DirectusUser , foreign_key = user))]
 #[table_model(surrogate_key)]
 # [diesel (table_name = directus_presets)]
 pub struct DirectusPreset {
@@ -53,5 +56,5 @@ pub struct DirectusPreset {
     /// Field representing the `color` column in table `directus_presets`.
     color: Option<String>,
 }
-:: diesel_builders :: prelude :: fk ! ((directus_presets :: role) -> (:: emi_deprecated_models_directus_roles :: directus_roles :: id));
-:: diesel_builders :: prelude :: fk ! ((directus_presets :: user) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
+:: diesel_builders :: prelude :: fpk ! (directus_presets :: role -> :: emi_deprecated_models_directus_roles :: directus_roles);
+:: diesel_builders :: prelude :: fpk ! (directus_presets :: user -> :: emi_deprecated_models_directus_users :: directus_users);

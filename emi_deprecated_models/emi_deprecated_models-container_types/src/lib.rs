@@ -8,12 +8,12 @@
     PartialOrd,
     Eq,
     PartialEq,
-    serde :: Serialize,
-    serde :: Deserialize,
-    diesel :: Queryable,
-    diesel :: Selectable,
-    diesel :: Identifiable,
-    diesel_builders :: prelude :: TableModel,
+    :: serde :: Serialize,
+    :: serde :: Deserialize,
+    :: diesel :: Queryable,
+    :: diesel :: Selectable,
+    :: diesel :: Identifiable,
+    :: diesel_builders :: prelude :: TableModel,
 )]
 /// Struct representing a row in the `Container_Types` table.
 #[table_model(surrogate_key)]
@@ -41,5 +41,5 @@ pub struct ContainerType {
     container_type: String,
 }
 ::diesel_builders::prelude::unique_index!(Container_Types::container_type);
-:: diesel_builders :: prelude :: fk ! ((Container_Types :: user_created) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
-:: diesel_builders :: prelude :: fk ! ((Container_Types :: user_updated) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
+:: diesel_builders :: prelude :: fpk ! (Container_Types :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);
+:: diesel_builders :: prelude :: fpk ! (Container_Types :: user_updated -> :: emi_deprecated_models_directus_users :: directus_users);

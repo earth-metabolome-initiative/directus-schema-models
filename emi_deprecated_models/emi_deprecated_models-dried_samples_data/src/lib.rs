@@ -8,14 +8,17 @@
     PartialOrd,
     Eq,
     PartialEq,
-    serde :: Serialize,
-    serde :: Deserialize,
-    diesel :: Queryable,
-    diesel :: Selectable,
-    diesel :: Identifiable,
-    diesel_builders :: prelude :: TableModel,
+    :: serde :: Serialize,
+    :: serde :: Deserialize,
+    :: diesel :: Queryable,
+    :: diesel :: Selectable,
+    :: diesel :: Identifiable,
+    :: diesel :: Associations,
+    :: diesel_builders :: prelude :: TableModel,
 )]
 /// Struct representing a row in the `Dried_Samples_Data` table.
+# [diesel (belongs_to (emi_deprecated_models_batches :: Batch , foreign_key = batch))]
+# [diesel (belongs_to (emi_deprecated_models_field_data :: FieldDatum , foreign_key = field_data))]
 #[table_model(surrogate_key)]
 # [diesel (table_name = Dried_Samples_Data)]
 pub struct DriedSamplesDatum {
@@ -56,9 +59,9 @@ pub struct DriedSamplesDatum {
     field_data: Option<i32>,
 }
 ::diesel_builders::prelude::unique_index!(Dried_Samples_Data::sample_container);
-:: diesel_builders :: prelude :: fk ! ((Dried_Samples_Data :: batch) -> (:: emi_deprecated_models_batches :: Batches :: id));
-:: diesel_builders :: prelude :: fk ! ((Dried_Samples_Data :: field_data) -> (:: emi_deprecated_models_field_data :: Field_Data :: id));
-:: diesel_builders :: prelude :: fk ! ((Dried_Samples_Data :: parent_container) -> (:: emi_deprecated_models_containers :: Containers :: id));
-:: diesel_builders :: prelude :: fk ! ((Dried_Samples_Data :: sample_container) -> (:: emi_deprecated_models_containers :: Containers :: id));
-:: diesel_builders :: prelude :: fk ! ((Dried_Samples_Data :: user_created) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
-:: diesel_builders :: prelude :: fk ! ((Dried_Samples_Data :: user_updated) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
+:: diesel_builders :: prelude :: fpk ! (Dried_Samples_Data :: batch -> :: emi_deprecated_models_batches :: Batches);
+:: diesel_builders :: prelude :: fpk ! (Dried_Samples_Data :: field_data -> :: emi_deprecated_models_field_data :: Field_Data);
+:: diesel_builders :: prelude :: fpk ! (Dried_Samples_Data :: parent_container -> :: emi_deprecated_models_containers :: Containers);
+:: diesel_builders :: prelude :: fpk ! (Dried_Samples_Data :: sample_container -> :: emi_deprecated_models_containers :: Containers);
+:: diesel_builders :: prelude :: fpk ! (Dried_Samples_Data :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);
+:: diesel_builders :: prelude :: fpk ! (Dried_Samples_Data :: user_updated -> :: emi_deprecated_models_directus_users :: directus_users);

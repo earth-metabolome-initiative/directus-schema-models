@@ -7,12 +7,12 @@
     PartialOrd,
     Eq,
     PartialEq,
-    serde :: Serialize,
-    serde :: Deserialize,
-    diesel :: Queryable,
-    diesel :: Selectable,
-    diesel :: Identifiable,
-    diesel_builders :: prelude :: TableModel,
+    :: serde :: Serialize,
+    :: serde :: Deserialize,
+    :: diesel :: Queryable,
+    :: diesel :: Selectable,
+    :: diesel :: Identifiable,
+    :: diesel_builders :: prelude :: TableModel,
 )]
 /// Struct representing a row in the `directus_notifications` table.
 #[table_model(surrogate_key)]
@@ -49,5 +49,5 @@ pub struct DirectusNotification {
     /// Field representing the `item` column in table `directus_notifications`.
     item: Option<String>,
 }
-:: diesel_builders :: prelude :: fk ! ((directus_notifications :: recipient) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
-:: diesel_builders :: prelude :: fk ! ((directus_notifications :: sender) -> (:: emi_deprecated_models_directus_users :: directus_users :: id));
+:: diesel_builders :: prelude :: fpk ! (directus_notifications :: recipient -> :: emi_deprecated_models_directus_users :: directus_users);
+:: diesel_builders :: prelude :: fpk ! (directus_notifications :: sender -> :: emi_deprecated_models_directus_users :: directus_users);

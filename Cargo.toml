@@ -116,11 +116,12 @@ emi_deprecated_models-spatial_ref_sys = { path = "emi_deprecated_models/emi_depr
 rosetta_timestamp = { git = "https://github.com/earth-metabolome-initiative/emi-monorepo", branch = "postgres-crate", features = [
   "diesel",
   "serde",
+  "sqlite",
 ] }
 pgrx_validation = { git = "https://github.com/earth-metabolome-initiative/emi-monorepo", branch = "postgres-crate" }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = { version = "1.0" }
-validation_errors = { git = "https://github.com/earth-metabolome-initiative/emi-monorepo", branch = "postgres-crate" }
+validation-errors = { git = "https://github.com/LucaCappelletti94/diesel-builders", branch = "main" }
 postgis_diesel = { git = "https://github.com/LucaCappelletti94/postgis-diesel", branch = "master", features = [
   "serde",
   "diesel",
@@ -137,6 +138,7 @@ diesel-builders = { git = "https://github.com/LucaCappelletti94/diesel-builders"
 rosetta_uuid = { git = "https://github.com/earth-metabolome-initiative/emi-monorepo", branch = "postgres-crate", features = [
   "diesel",
   "serde",
+  "sqlite",
 ] }
 
 [workspace.lints.rust]

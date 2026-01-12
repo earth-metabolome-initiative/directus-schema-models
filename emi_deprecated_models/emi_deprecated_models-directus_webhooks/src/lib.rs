@@ -5,14 +5,16 @@
     Hash,
     Eq,
     PartialEq,
-    serde :: Serialize,
-    serde :: Deserialize,
-    diesel :: Queryable,
-    diesel :: Selectable,
-    diesel :: Identifiable,
-    diesel_builders :: prelude :: TableModel,
+    :: serde :: Serialize,
+    :: serde :: Deserialize,
+    :: diesel :: Queryable,
+    :: diesel :: Selectable,
+    :: diesel :: Identifiable,
+    :: diesel :: Associations,
+    :: diesel_builders :: prelude :: TableModel,
 )]
 /// Struct representing a row in the `directus_webhooks` table.
+# [diesel (belongs_to (emi_deprecated_models_directus_flows :: DirectusFlow , foreign_key = migrated_flow))]
 #[table_model(surrogate_key)]
 # [diesel (table_name = directus_webhooks)]
 pub struct DirectusWebhook {
@@ -48,4 +50,4 @@ pub struct DirectusWebhook {
     # [diesel (sql_type = :: rosetta_uuid :: diesel_impls :: Uuid)]
     migrated_flow: Option<::rosetta_uuid::Uuid>,
 }
-:: diesel_builders :: prelude :: fk ! ((directus_webhooks :: migrated_flow) -> (:: emi_deprecated_models_directus_flows :: directus_flows :: id));
+:: diesel_builders :: prelude :: fpk ! (directus_webhooks :: migrated_flow -> :: emi_deprecated_models_directus_flows :: directus_flows);
