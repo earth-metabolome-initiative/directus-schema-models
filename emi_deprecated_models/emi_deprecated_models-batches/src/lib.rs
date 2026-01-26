@@ -19,6 +19,9 @@
 /// Struct representing a row in the `Batches` table.
 # [diesel (belongs_to (emi_deprecated_models_batch_types :: BatchType , foreign_key = batch_type))]
 #[table_model(surrogate_key)]
+# [table_model (foreign_key ((batch_type ,) , (:: emi_deprecated_models_batch_types :: Batch_Types :: id)))]
+# [table_model (foreign_key ((user_created ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
+# [table_model (foreign_key ((user_updated ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
 # [diesel (table_name = Batches)]
 pub struct Batch {
     /// Field representing the `id` column in table `Batches`.
@@ -56,6 +59,3 @@ pub struct Batch {
 }
 ::diesel_builders::prelude::unique_index!(Batches::batch_id);
 ::diesel_builders::prelude::unique_index!(Batches::old_id);
-:: diesel_builders :: prelude :: fpk ! (Batches :: batch_type -> :: emi_deprecated_models_batch_types :: Batch_Types);
-:: diesel_builders :: prelude :: fpk ! (Batches :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);
-:: diesel_builders :: prelude :: fpk ! (Batches :: user_updated -> :: emi_deprecated_models_directus_users :: directus_users);

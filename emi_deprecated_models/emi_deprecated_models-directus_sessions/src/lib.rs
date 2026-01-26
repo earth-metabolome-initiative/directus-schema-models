@@ -19,6 +19,8 @@
 # [diesel (belongs_to (emi_deprecated_models_directus_shares :: DirectusShare , foreign_key = share))]
 # [diesel (belongs_to (emi_deprecated_models_directus_users :: DirectusUser , foreign_key = user))]
 #[diesel(primary_key(token))]
+# [table_model (foreign_key ((share ,) , (:: emi_deprecated_models_directus_shares :: directus_shares :: id)))]
+# [table_model (foreign_key ((user ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
 # [diesel (table_name = directus_sessions)]
 pub struct DirectusSession {
     /// Field representing the `token` column in table `directus_sessions`.
@@ -41,5 +43,3 @@ pub struct DirectusSession {
     /// Field representing the `next_token` column in table `directus_sessions`.
     next_token: Option<String>,
 }
-:: diesel_builders :: prelude :: fpk ! (directus_sessions :: share -> :: emi_deprecated_models_directus_shares :: directus_shares);
-:: diesel_builders :: prelude :: fpk ! (directus_sessions :: user -> :: emi_deprecated_models_directus_users :: directus_users);

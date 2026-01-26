@@ -17,6 +17,9 @@
 # [diesel (belongs_to (emi_deprecated_models_directus_activity :: DirectusActivity , foreign_key = activity))]
 # [diesel (belongs_to (emi_deprecated_models_directus_versions :: DirectusVersion , foreign_key = version))]
 #[table_model(surrogate_key)]
+# [table_model (foreign_key ((activity ,) , (:: emi_deprecated_models_directus_activity :: directus_activity :: id)))]
+# [table_model (foreign_key ((parent ,) , (directus_revisions :: id)))]
+# [table_model (foreign_key ((version ,) , (:: emi_deprecated_models_directus_versions :: directus_versions :: id)))]
 # [diesel (table_name = directus_revisions)]
 pub struct DirectusRevision {
     /// Field representing the `id` column in table `directus_revisions`.
@@ -40,6 +43,3 @@ pub struct DirectusRevision {
     # [diesel (sql_type = :: rosetta_uuid :: diesel_impls :: Uuid)]
     version: Option<::rosetta_uuid::Uuid>,
 }
-:: diesel_builders :: prelude :: fpk ! (directus_revisions :: activity -> :: emi_deprecated_models_directus_activity :: directus_activity);
-:: diesel_builders :: prelude :: fpk ! (directus_revisions :: parent -> directus_revisions);
-:: diesel_builders :: prelude :: fpk ! (directus_revisions :: version -> :: emi_deprecated_models_directus_versions :: directus_versions);

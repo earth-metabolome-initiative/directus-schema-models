@@ -17,6 +17,8 @@
 )]
 /// Struct representing a row in the `Injection_Methods` table.
 #[table_model(surrogate_key)]
+# [table_model (foreign_key ((user_created ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
+# [table_model (foreign_key ((user_updated ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
 # [diesel (table_name = Injection_Methods)]
 pub struct InjectionMethod {
     /// Field representing the `id` column in table `Injection_Methods`.
@@ -48,5 +50,3 @@ pub struct InjectionMethod {
     method_description: Option<String>,
 }
 ::diesel_builders::prelude::unique_index!(Injection_Methods::method_name);
-:: diesel_builders :: prelude :: fpk ! (Injection_Methods :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);
-:: diesel_builders :: prelude :: fpk ! (Injection_Methods :: user_updated -> :: emi_deprecated_models_directus_users :: directus_users);

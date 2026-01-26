@@ -15,6 +15,9 @@
 )]
 /// Struct representing a row in the `directus_files` table.
 # [diesel (belongs_to (emi_deprecated_models_directus_folders :: DirectusFolder , foreign_key = folder))]
+# [table_model (foreign_key ((folder ,) , (:: emi_deprecated_models_directus_folders :: directus_folders :: id)))]
+# [table_model (foreign_key ((modified_by ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
+# [table_model (foreign_key ((uploaded_by ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
 # [diesel (table_name = directus_files)]
 pub struct DirectusFile {
     /// Field representing the `id` column in table `directus_files`.
@@ -82,6 +85,3 @@ pub struct DirectusFile {
     # [diesel (sql_type = :: rosetta_timestamp :: diesel_impls :: TimestampUTC)]
     uploaded_on: Option<::rosetta_timestamp::TimestampUTC>,
 }
-:: diesel_builders :: prelude :: fpk ! (directus_files :: folder -> :: emi_deprecated_models_directus_folders :: directus_folders);
-:: diesel_builders :: prelude :: fpk ! (directus_files :: modified_by -> :: emi_deprecated_models_directus_users :: directus_users);
-:: diesel_builders :: prelude :: fpk ! (directus_files :: uploaded_by -> :: emi_deprecated_models_directus_users :: directus_users);

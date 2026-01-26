@@ -61,6 +61,7 @@ members = [
 edition = "2024"
 
 [workspace.dependencies]
+builder = { path = "builder" }
 emi_deprecated_models-addresses = { path = "emi_deprecated_models/emi_deprecated_models-addresses" }
 emi_deprecated_models-aliquoting_data = { path = "emi_deprecated_models/emi_deprecated_models-aliquoting_data" }
 emi_deprecated_models-batch_types = { path = "emi_deprecated_models/emi_deprecated_models-batch_types" }

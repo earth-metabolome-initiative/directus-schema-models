@@ -17,6 +17,7 @@
 )]
 /// Struct representing a row in the `directus_dashboards` table.
 # [diesel (belongs_to (emi_deprecated_models_directus_users :: DirectusUser , foreign_key = user_created))]
+# [table_model (foreign_key ((user_created ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
 # [diesel (table_name = directus_dashboards)]
 pub struct DirectusDashboard {
     /// Field representing the `id` column in table `directus_dashboards`.
@@ -41,4 +42,3 @@ pub struct DirectusDashboard {
     /// Field representing the `color` column in table `directus_dashboards`.
     color: Option<String>,
 }
-:: diesel_builders :: prelude :: fpk ! (directus_dashboards :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);

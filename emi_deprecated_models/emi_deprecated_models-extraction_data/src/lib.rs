@@ -18,6 +18,16 @@
 # [diesel (belongs_to (emi_deprecated_models_container_models :: ContainerModel , foreign_key = extraction_container))]
 # [diesel (belongs_to (emi_deprecated_models_extraction_methods :: ExtractionMethod , foreign_key = extraction_method))]
 #[table_model(surrogate_key)]
+# [table_model (foreign_key ((batch ,) , (:: emi_deprecated_models_batches :: Batches :: id)))]
+# [table_model (foreign_key ((dried_weight_unit ,) , (:: emi_deprecated_models_si_units :: SI_Units :: id)))]
+# [table_model (foreign_key ((extraction_container ,) , (:: emi_deprecated_models_container_models :: Container_Models :: id)))]
+# [table_model (foreign_key ((extraction_method ,) , (:: emi_deprecated_models_extraction_methods :: Extraction_Methods :: id)))]
+# [table_model (foreign_key ((parent_container ,) , (:: emi_deprecated_models_containers :: Containers :: id)))]
+# [table_model (foreign_key ((parent_sample_container ,) , (:: emi_deprecated_models_containers :: Containers :: id)))]
+# [table_model (foreign_key ((sample_container ,) , (:: emi_deprecated_models_containers :: Containers :: id)))]
+# [table_model (foreign_key ((solvent_volume_unit ,) , (:: emi_deprecated_models_si_units :: SI_Units :: id)))]
+# [table_model (foreign_key ((user_created ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
+# [table_model (foreign_key ((user_updated ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
 # [diesel (table_name = Extraction_Data)]
 pub struct ExtractionDatum {
     /// Field representing the `id` column in table `Extraction_Data`.
@@ -77,13 +87,3 @@ pub struct ExtractionDatum {
     altemis_rack_id: Option<String>,
 }
 ::diesel_builders::prelude::unique_index!(Extraction_Data::sample_container);
-:: diesel_builders :: prelude :: fpk ! (Extraction_Data :: batch -> :: emi_deprecated_models_batches :: Batches);
-:: diesel_builders :: prelude :: fpk ! (Extraction_Data :: dried_weight_unit -> :: emi_deprecated_models_si_units :: SI_Units);
-:: diesel_builders :: prelude :: fpk ! (Extraction_Data :: extraction_container -> :: emi_deprecated_models_container_models :: Container_Models);
-:: diesel_builders :: prelude :: fpk ! (Extraction_Data :: extraction_method -> :: emi_deprecated_models_extraction_methods :: Extraction_Methods);
-:: diesel_builders :: prelude :: fpk ! (Extraction_Data :: parent_container -> :: emi_deprecated_models_containers :: Containers);
-:: diesel_builders :: prelude :: fpk ! (Extraction_Data :: parent_sample_container -> :: emi_deprecated_models_containers :: Containers);
-:: diesel_builders :: prelude :: fpk ! (Extraction_Data :: sample_container -> :: emi_deprecated_models_containers :: Containers);
-:: diesel_builders :: prelude :: fpk ! (Extraction_Data :: solvent_volume_unit -> :: emi_deprecated_models_si_units :: SI_Units);
-:: diesel_builders :: prelude :: fpk ! (Extraction_Data :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);
-:: diesel_builders :: prelude :: fpk ! (Extraction_Data :: user_updated -> :: emi_deprecated_models_directus_users :: directus_users);

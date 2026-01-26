@@ -16,6 +16,12 @@
 /// Struct representing a row in the `Aliquoting_Data` table.
 # [diesel (belongs_to (emi_deprecated_models_si_units :: SiUnit , foreign_key = aliquot_volume_unit))]
 #[table_model(surrogate_key)]
+# [table_model (foreign_key ((aliquot_volume_unit ,) , (:: emi_deprecated_models_si_units :: SI_Units :: id)))]
+# [table_model (foreign_key ((parent_container ,) , (:: emi_deprecated_models_containers :: Containers :: id)))]
+# [table_model (foreign_key ((parent_sample_container ,) , (:: emi_deprecated_models_containers :: Containers :: id)))]
+# [table_model (foreign_key ((sample_container ,) , (:: emi_deprecated_models_containers :: Containers :: id)))]
+# [table_model (foreign_key ((user_created ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
+# [table_model (foreign_key ((user_updated ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
 # [diesel (table_name = Aliquoting_Data)]
 pub struct AliquotingDatum {
     /// Field representing the `id` column in table `Aliquoting_Data`.
@@ -55,9 +61,3 @@ pub struct AliquotingDatum {
     parent_sample_container: i32,
 }
 ::diesel_builders::prelude::unique_index!(Aliquoting_Data::sample_container);
-:: diesel_builders :: prelude :: fpk ! (Aliquoting_Data :: aliquot_volume_unit -> :: emi_deprecated_models_si_units :: SI_Units);
-:: diesel_builders :: prelude :: fpk ! (Aliquoting_Data :: parent_container -> :: emi_deprecated_models_containers :: Containers);
-:: diesel_builders :: prelude :: fpk ! (Aliquoting_Data :: parent_sample_container -> :: emi_deprecated_models_containers :: Containers);
-:: diesel_builders :: prelude :: fpk ! (Aliquoting_Data :: sample_container -> :: emi_deprecated_models_containers :: Containers);
-:: diesel_builders :: prelude :: fpk ! (Aliquoting_Data :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);
-:: diesel_builders :: prelude :: fpk ! (Aliquoting_Data :: user_updated -> :: emi_deprecated_models_directus_users :: directus_users);

@@ -17,6 +17,8 @@
 )]
 /// Struct representing a row in the `Container_Types` table.
 #[table_model(surrogate_key)]
+# [table_model (foreign_key ((user_created ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
+# [table_model (foreign_key ((user_updated ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
 # [diesel (table_name = Container_Types)]
 pub struct ContainerType {
     /// Field representing the `id` column in table `Container_Types`.
@@ -41,5 +43,3 @@ pub struct ContainerType {
     container_type: String,
 }
 ::diesel_builders::prelude::unique_index!(Container_Types::container_type);
-:: diesel_builders :: prelude :: fpk ! (Container_Types :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);
-:: diesel_builders :: prelude :: fpk ! (Container_Types :: user_updated -> :: emi_deprecated_models_directus_users :: directus_users);

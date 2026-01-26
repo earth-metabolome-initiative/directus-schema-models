@@ -23,6 +23,13 @@
 # [diesel (belongs_to (emi_deprecated_models_instruments :: Instrument , foreign_key = instrument_used))]
 # [diesel (belongs_to (emi_deprecated_models_containers :: Container , foreign_key = parent_sample_container))]
 #[table_model(surrogate_key)]
+# [table_model (foreign_key ((batch ,) , (:: emi_deprecated_models_batches :: Batches :: id)))]
+# [table_model (foreign_key ((injection_method ,) , (:: emi_deprecated_models_injection_methods :: Injection_Methods :: id)))]
+# [table_model (foreign_key ((injection_volume_unit ,) , (:: emi_deprecated_models_si_units :: SI_Units :: id)))]
+# [table_model (foreign_key ((instrument_used ,) , (:: emi_deprecated_models_instruments :: Instruments :: id)))]
+# [table_model (foreign_key ((parent_sample_container ,) , (:: emi_deprecated_models_containers :: Containers :: id)))]
+# [table_model (foreign_key ((user_created ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
+# [table_model (foreign_key ((user_updated ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
 # [diesel (table_name = MS_Data)]
 pub struct MsDatum {
     /// Field representing the `id` column in table `MS_Data`.
@@ -69,10 +76,3 @@ pub struct MsDatum {
     processed: Option<bool>,
 }
 ::diesel_builders::prelude::unique_index!(MS_Data::filename);
-:: diesel_builders :: prelude :: fpk ! (MS_Data :: batch -> :: emi_deprecated_models_batches :: Batches);
-:: diesel_builders :: prelude :: fpk ! (MS_Data :: injection_method -> :: emi_deprecated_models_injection_methods :: Injection_Methods);
-:: diesel_builders :: prelude :: fpk ! (MS_Data :: injection_volume_unit -> :: emi_deprecated_models_si_units :: SI_Units);
-:: diesel_builders :: prelude :: fpk ! (MS_Data :: instrument_used -> :: emi_deprecated_models_instruments :: Instruments);
-:: diesel_builders :: prelude :: fpk ! (MS_Data :: parent_sample_container -> :: emi_deprecated_models_containers :: Containers);
-:: diesel_builders :: prelude :: fpk ! (MS_Data :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);
-:: diesel_builders :: prelude :: fpk ! (MS_Data :: user_updated -> :: emi_deprecated_models_directus_users :: directus_users);

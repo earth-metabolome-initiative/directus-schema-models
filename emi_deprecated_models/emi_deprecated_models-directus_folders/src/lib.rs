@@ -15,6 +15,7 @@
     :: diesel_builders :: prelude :: TableModel,
 )]
 /// Struct representing a row in the `directus_folders` table.
+# [table_model (foreign_key ((parent ,) , (directus_folders :: id)))]
 # [diesel (table_name = directus_folders)]
 pub struct DirectusFolder {
     /// Field representing the `id` column in table `directus_folders`.
@@ -26,4 +27,3 @@ pub struct DirectusFolder {
     # [diesel (sql_type = :: rosetta_uuid :: diesel_impls :: Uuid)]
     parent: Option<::rosetta_uuid::Uuid>,
 }
-:: diesel_builders :: prelude :: fpk ! (directus_folders :: parent -> directus_folders);

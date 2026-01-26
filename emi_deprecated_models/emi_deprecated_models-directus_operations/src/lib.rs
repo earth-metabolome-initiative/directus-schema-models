@@ -16,6 +16,10 @@
 /// Struct representing a row in the `directus_operations` table.
 # [diesel (belongs_to (emi_deprecated_models_directus_flows :: DirectusFlow , foreign_key = flow))]
 # [diesel (belongs_to (emi_deprecated_models_directus_users :: DirectusUser , foreign_key = user_created))]
+# [table_model (foreign_key ((flow ,) , (:: emi_deprecated_models_directus_flows :: directus_flows :: id)))]
+# [table_model (foreign_key ((reject ,) , (directus_operations :: id)))]
+# [table_model (foreign_key ((resolve ,) , (directus_operations :: id)))]
+# [table_model (foreign_key ((user_created ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
 # [diesel (table_name = directus_operations)]
 pub struct DirectusOperation {
     /// Field representing the `id` column in table `directus_operations`.
@@ -57,7 +61,3 @@ pub struct DirectusOperation {
 }
 ::diesel_builders::prelude::unique_index!(directus_operations::reject);
 ::diesel_builders::prelude::unique_index!(directus_operations::resolve);
-:: diesel_builders :: prelude :: fpk ! (directus_operations :: flow -> :: emi_deprecated_models_directus_flows :: directus_flows);
-:: diesel_builders :: prelude :: fpk ! (directus_operations :: reject -> directus_operations);
-:: diesel_builders :: prelude :: fpk ! (directus_operations :: resolve -> directus_operations);
-:: diesel_builders :: prelude :: fpk ! (directus_operations :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);

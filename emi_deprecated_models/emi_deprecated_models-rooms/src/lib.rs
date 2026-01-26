@@ -16,6 +16,10 @@
 # [diesel (belongs_to (emi_deprecated_models_addresses :: Address , foreign_key = address))]
 # [diesel (belongs_to (emi_deprecated_models_buildings :: Building , foreign_key = building))]
 #[table_model(surrogate_key)]
+# [table_model (foreign_key ((address ,) , (:: emi_deprecated_models_addresses :: Addresses :: id)))]
+# [table_model (foreign_key ((building ,) , (:: emi_deprecated_models_buildings :: Buildings :: id)))]
+# [table_model (foreign_key ((user_created ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
+# [table_model (foreign_key ((user_updated ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
 # [diesel (table_name = Rooms)]
 pub struct Room {
     /// Field representing the `id` column in table `Rooms`.
@@ -50,7 +54,3 @@ pub struct Room {
     # [diesel (sql_type = :: rosetta_uuid :: diesel_impls :: Uuid)]
     qr_code: ::rosetta_uuid::Uuid,
 }
-:: diesel_builders :: prelude :: fpk ! (Rooms :: address -> :: emi_deprecated_models_addresses :: Addresses);
-:: diesel_builders :: prelude :: fpk ! (Rooms :: building -> :: emi_deprecated_models_buildings :: Buildings);
-:: diesel_builders :: prelude :: fpk ! (Rooms :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);
-:: diesel_builders :: prelude :: fpk ! (Rooms :: user_updated -> :: emi_deprecated_models_directus_users :: directus_users);

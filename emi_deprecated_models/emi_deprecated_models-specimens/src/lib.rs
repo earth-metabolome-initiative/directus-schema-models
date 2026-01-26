@@ -17,6 +17,8 @@
 )]
 /// Struct representing a row in the `Specimens` table.
 #[table_model(surrogate_key)]
+# [table_model (foreign_key ((user_created ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
+# [table_model (foreign_key ((user_updated ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
 # [diesel (table_name = Specimens)]
 pub struct Specimen {
     /// Field representing the `id` column in table `Specimens`.
@@ -37,5 +39,3 @@ pub struct Specimen {
     # [diesel (sql_type = :: rosetta_timestamp :: diesel_impls :: TimestampUTC)]
     date_updated: Option<::rosetta_timestamp::TimestampUTC>,
 }
-:: diesel_builders :: prelude :: fpk ! (Specimens :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);
-:: diesel_builders :: prelude :: fpk ! (Specimens :: user_updated -> :: emi_deprecated_models_directus_users :: directus_users);

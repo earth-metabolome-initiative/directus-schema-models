@@ -17,6 +17,8 @@
 )]
 /// Struct representing a row in the `Instrument_Types` table.
 #[table_model(surrogate_key)]
+# [table_model (foreign_key ((user_created ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
+# [table_model (foreign_key ((user_updated ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
 # [diesel (table_name = Instrument_Types)]
 pub struct InstrumentType {
     /// Field representing the `id` column in table `Instrument_Types`.
@@ -44,5 +46,3 @@ pub struct InstrumentType {
     /// `Instrument_Types`.
     instrument_type: Option<String>,
 }
-:: diesel_builders :: prelude :: fpk ! (Instrument_Types :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);
-:: diesel_builders :: prelude :: fpk ! (Instrument_Types :: user_updated -> :: emi_deprecated_models_directus_users :: directus_users);

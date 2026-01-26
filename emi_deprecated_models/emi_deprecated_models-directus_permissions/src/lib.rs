@@ -16,6 +16,7 @@
 /// Struct representing a row in the `directus_permissions` table.
 # [diesel (belongs_to (emi_deprecated_models_directus_policies :: DirectusPolicy , foreign_key = policy))]
 #[table_model(surrogate_key)]
+# [table_model (foreign_key ((policy ,) , (:: emi_deprecated_models_directus_policies :: directus_policies :: id)))]
 # [diesel (table_name = directus_permissions)]
 pub struct DirectusPermission {
     /// Field representing the `id` column in table `directus_permissions`.
@@ -42,4 +43,3 @@ pub struct DirectusPermission {
     # [diesel (sql_type = :: rosetta_uuid :: diesel_impls :: Uuid)]
     policy: ::rosetta_uuid::Uuid,
 }
-:: diesel_builders :: prelude :: fpk ! (directus_permissions :: policy -> :: emi_deprecated_models_directus_policies :: directus_policies);

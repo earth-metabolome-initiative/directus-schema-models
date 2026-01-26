@@ -15,6 +15,9 @@
 )]
 /// Struct representing a row in the `directus_versions` table.
 # [diesel (belongs_to (emi_deprecated_models_directus_collections :: DirectusCollection , foreign_key = collection))]
+# [table_model (foreign_key ((collection ,) , (:: emi_deprecated_models_directus_collections :: directus_collections :: collection)))]
+# [table_model (foreign_key ((user_created ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
+# [table_model (foreign_key ((user_updated ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
 # [diesel (table_name = directus_versions)]
 pub struct DirectusVersion {
     /// Field representing the `id` column in table `directus_versions`.
@@ -52,6 +55,3 @@ pub struct DirectusVersion {
     # [diesel (sql_type = :: diesel :: sql_types :: Json)]
     delta: Option<::serde_json::Value>,
 }
-:: diesel_builders :: prelude :: fpk ! (directus_versions :: collection -> :: emi_deprecated_models_directus_collections :: directus_collections);
-:: diesel_builders :: prelude :: fpk ! (directus_versions :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);
-:: diesel_builders :: prelude :: fpk ! (directus_versions :: user_updated -> :: emi_deprecated_models_directus_users :: directus_users);

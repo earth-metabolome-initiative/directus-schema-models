@@ -17,6 +17,8 @@
 )]
 /// Struct representing a row in the `Universities` table.
 #[table_model(surrogate_key)]
+# [table_model (foreign_key ((user_created ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
+# [table_model (foreign_key ((user_updated ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
 # [diesel (table_name = Universities)]
 pub struct University {
     /// Field representing the `id` column in table `Universities`.
@@ -53,5 +55,3 @@ pub struct University {
     domains: String,
 }
 ::diesel_builders::prelude::unique_index!(Universities::university_name);
-:: diesel_builders :: prelude :: fpk ! (Universities :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);
-:: diesel_builders :: prelude :: fpk ! (Universities :: user_updated -> :: emi_deprecated_models_directus_users :: directus_users);

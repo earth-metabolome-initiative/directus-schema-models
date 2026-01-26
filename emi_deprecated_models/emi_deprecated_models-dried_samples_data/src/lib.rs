@@ -20,6 +20,12 @@
 # [diesel (belongs_to (emi_deprecated_models_batches :: Batch , foreign_key = batch))]
 # [diesel (belongs_to (emi_deprecated_models_field_data :: FieldDatum , foreign_key = field_data))]
 #[table_model(surrogate_key)]
+# [table_model (foreign_key ((batch ,) , (:: emi_deprecated_models_batches :: Batches :: id)))]
+# [table_model (foreign_key ((field_data ,) , (:: emi_deprecated_models_field_data :: Field_Data :: id)))]
+# [table_model (foreign_key ((parent_container ,) , (:: emi_deprecated_models_containers :: Containers :: id)))]
+# [table_model (foreign_key ((sample_container ,) , (:: emi_deprecated_models_containers :: Containers :: id)))]
+# [table_model (foreign_key ((user_created ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
+# [table_model (foreign_key ((user_updated ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
 # [diesel (table_name = Dried_Samples_Data)]
 pub struct DriedSamplesDatum {
     /// Field representing the `id` column in table `Dried_Samples_Data`.
@@ -59,9 +65,3 @@ pub struct DriedSamplesDatum {
     field_data: Option<i32>,
 }
 ::diesel_builders::prelude::unique_index!(Dried_Samples_Data::sample_container);
-:: diesel_builders :: prelude :: fpk ! (Dried_Samples_Data :: batch -> :: emi_deprecated_models_batches :: Batches);
-:: diesel_builders :: prelude :: fpk ! (Dried_Samples_Data :: field_data -> :: emi_deprecated_models_field_data :: Field_Data);
-:: diesel_builders :: prelude :: fpk ! (Dried_Samples_Data :: parent_container -> :: emi_deprecated_models_containers :: Containers);
-:: diesel_builders :: prelude :: fpk ! (Dried_Samples_Data :: sample_container -> :: emi_deprecated_models_containers :: Containers);
-:: diesel_builders :: prelude :: fpk ! (Dried_Samples_Data :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);
-:: diesel_builders :: prelude :: fpk ! (Dried_Samples_Data :: user_updated -> :: emi_deprecated_models_directus_users :: directus_users);

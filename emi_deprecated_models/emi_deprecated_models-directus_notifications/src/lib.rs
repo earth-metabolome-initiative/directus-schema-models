@@ -16,6 +16,8 @@
 )]
 /// Struct representing a row in the `directus_notifications` table.
 #[table_model(surrogate_key)]
+# [table_model (foreign_key ((recipient ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
+# [table_model (foreign_key ((sender ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
 # [diesel (table_name = directus_notifications)]
 pub struct DirectusNotification {
     /// Field representing the `id` column in table `directus_notifications`.
@@ -49,5 +51,3 @@ pub struct DirectusNotification {
     /// Field representing the `item` column in table `directus_notifications`.
     item: Option<String>,
 }
-:: diesel_builders :: prelude :: fpk ! (directus_notifications :: recipient -> :: emi_deprecated_models_directus_users :: directus_users);
-:: diesel_builders :: prelude :: fpk ! (directus_notifications :: sender -> :: emi_deprecated_models_directus_users :: directus_users);

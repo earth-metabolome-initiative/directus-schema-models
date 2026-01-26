@@ -17,6 +17,10 @@
 )]
 /// Struct representing a row in the `Container_Rules` table.
 #[table_model(surrogate_key)]
+# [table_model (foreign_key ((child_container ,) , (:: emi_deprecated_models_container_models :: Container_Models :: id)))]
+# [table_model (foreign_key ((parent_container ,) , (:: emi_deprecated_models_container_models :: Container_Models :: id)))]
+# [table_model (foreign_key ((user_created ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
+# [table_model (foreign_key ((user_updated ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
 # [diesel (table_name = Container_Rules)]
 pub struct ContainerRule {
     /// Field representing the `id` column in table `Container_Rules`.
@@ -45,7 +49,3 @@ pub struct ContainerRule {
     /// Field representing the `rule_name` column in table `Container_Rules`.
     rule_name: String,
 }
-:: diesel_builders :: prelude :: fpk ! (Container_Rules :: child_container -> :: emi_deprecated_models_container_models :: Container_Models);
-:: diesel_builders :: prelude :: fpk ! (Container_Rules :: parent_container -> :: emi_deprecated_models_container_models :: Container_Models);
-:: diesel_builders :: prelude :: fpk ! (Container_Rules :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);
-:: diesel_builders :: prelude :: fpk ! (Container_Rules :: user_updated -> :: emi_deprecated_models_directus_users :: directus_users);

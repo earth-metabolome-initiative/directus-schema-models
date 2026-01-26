@@ -17,6 +17,8 @@
 )]
 /// Struct representing a row in the `Brands` table.
 #[table_model(surrogate_key)]
+# [table_model (foreign_key ((user_created ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
+# [table_model (foreign_key ((user_updated ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
 # [diesel (table_name = Brands)]
 pub struct Brand {
     /// Field representing the `id` column in table `Brands`.
@@ -39,5 +41,3 @@ pub struct Brand {
     brand: String,
 }
 ::diesel_builders::prelude::unique_index!(Brands::brand);
-:: diesel_builders :: prelude :: fpk ! (Brands :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);
-:: diesel_builders :: prelude :: fpk ! (Brands :: user_updated -> :: emi_deprecated_models_directus_users :: directus_users);

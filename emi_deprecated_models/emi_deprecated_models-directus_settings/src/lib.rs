@@ -17,6 +17,12 @@
 # [diesel (belongs_to (emi_deprecated_models_directus_roles :: DirectusRole , foreign_key = public_registration_role))]
 # [diesel (belongs_to (emi_deprecated_models_directus_folders :: DirectusFolder , foreign_key = storage_default_folder))]
 #[table_model(surrogate_key)]
+# [table_model (foreign_key ((project_logo ,) , (:: emi_deprecated_models_directus_files :: directus_files :: id)))]
+# [table_model (foreign_key ((public_background ,) , (:: emi_deprecated_models_directus_files :: directus_files :: id)))]
+# [table_model (foreign_key ((public_favicon ,) , (:: emi_deprecated_models_directus_files :: directus_files :: id)))]
+# [table_model (foreign_key ((public_foreground ,) , (:: emi_deprecated_models_directus_files :: directus_files :: id)))]
+# [table_model (foreign_key ((public_registration_role ,) , (:: emi_deprecated_models_directus_roles :: directus_roles :: id)))]
+# [table_model (foreign_key ((storage_default_folder ,) , (:: emi_deprecated_models_directus_folders :: directus_folders :: id)))]
 # [diesel (table_name = directus_settings)]
 pub struct DirectusSetting {
     /// Field representing the `id` column in table `directus_settings`.
@@ -139,9 +145,3 @@ pub struct DirectusSetting {
     # [diesel (sql_type = :: diesel :: sql_types :: Json)]
     visual_editor_urls: Option<::serde_json::Value>,
 }
-:: diesel_builders :: prelude :: fpk ! (directus_settings :: project_logo -> :: emi_deprecated_models_directus_files :: directus_files);
-:: diesel_builders :: prelude :: fpk ! (directus_settings :: public_background -> :: emi_deprecated_models_directus_files :: directus_files);
-:: diesel_builders :: prelude :: fpk ! (directus_settings :: public_favicon -> :: emi_deprecated_models_directus_files :: directus_files);
-:: diesel_builders :: prelude :: fpk ! (directus_settings :: public_foreground -> :: emi_deprecated_models_directus_files :: directus_files);
-:: diesel_builders :: prelude :: fpk ! (directus_settings :: public_registration_role -> :: emi_deprecated_models_directus_roles :: directus_roles);
-:: diesel_builders :: prelude :: fpk ! (directus_settings :: storage_default_folder -> :: emi_deprecated_models_directus_folders :: directus_folders);

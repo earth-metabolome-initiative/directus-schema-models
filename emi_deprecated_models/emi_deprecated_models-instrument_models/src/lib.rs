@@ -20,6 +20,10 @@
 # [diesel (belongs_to (emi_deprecated_models_brands :: Brand , foreign_key = brand))]
 # [diesel (belongs_to (emi_deprecated_models_instrument_types :: InstrumentType , foreign_key = instrument_type))]
 #[table_model(surrogate_key)]
+# [table_model (foreign_key ((brand ,) , (:: emi_deprecated_models_brands :: Brands :: id)))]
+# [table_model (foreign_key ((instrument_type ,) , (:: emi_deprecated_models_instrument_types :: Instrument_Types :: id)))]
+# [table_model (foreign_key ((user_created ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
+# [table_model (foreign_key ((user_updated ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
 # [diesel (table_name = Instrument_Models)]
 pub struct InstrumentModel {
     /// Field representing the `id` column in table `Instrument_Models`.
@@ -54,7 +58,3 @@ pub struct InstrumentModel {
     /// Field representing the `barcode` column in table `Instrument_Models`.
     barcode: Option<String>,
 }
-:: diesel_builders :: prelude :: fpk ! (Instrument_Models :: brand -> :: emi_deprecated_models_brands :: Brands);
-:: diesel_builders :: prelude :: fpk ! (Instrument_Models :: instrument_type -> :: emi_deprecated_models_instrument_types :: Instrument_Types);
-:: diesel_builders :: prelude :: fpk ! (Instrument_Models :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);
-:: diesel_builders :: prelude :: fpk ! (Instrument_Models :: user_updated -> :: emi_deprecated_models_directus_users :: directus_users);

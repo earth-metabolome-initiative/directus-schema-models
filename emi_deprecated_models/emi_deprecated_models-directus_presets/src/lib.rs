@@ -17,6 +17,8 @@
 # [diesel (belongs_to (emi_deprecated_models_directus_roles :: DirectusRole , foreign_key = role))]
 # [diesel (belongs_to (emi_deprecated_models_directus_users :: DirectusUser , foreign_key = user))]
 #[table_model(surrogate_key)]
+# [table_model (foreign_key ((role ,) , (:: emi_deprecated_models_directus_roles :: directus_roles :: id)))]
+# [table_model (foreign_key ((user ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
 # [diesel (table_name = directus_presets)]
 pub struct DirectusPreset {
     /// Field representing the `id` column in table `directus_presets`.
@@ -56,5 +58,3 @@ pub struct DirectusPreset {
     /// Field representing the `color` column in table `directus_presets`.
     color: Option<String>,
 }
-:: diesel_builders :: prelude :: fpk ! (directus_presets :: role -> :: emi_deprecated_models_directus_roles :: directus_roles);
-:: diesel_builders :: prelude :: fpk ! (directus_presets :: user -> :: emi_deprecated_models_directus_users :: directus_users);

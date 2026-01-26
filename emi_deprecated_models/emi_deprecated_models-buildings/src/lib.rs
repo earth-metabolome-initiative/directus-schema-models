@@ -19,6 +19,9 @@
 /// Struct representing a row in the `Buildings` table.
 # [diesel (belongs_to (emi_deprecated_models_universities :: University , foreign_key = university))]
 #[table_model(surrogate_key)]
+# [table_model (foreign_key ((university ,) , (:: emi_deprecated_models_universities :: Universities :: id)))]
+# [table_model (foreign_key ((user_created ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
+# [table_model (foreign_key ((user_updated ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
 # [diesel (table_name = Buildings)]
 pub struct Building {
     /// Field representing the `id` column in table `Buildings`.
@@ -44,6 +47,3 @@ pub struct Building {
     /// Field representing the `address` column in table `Buildings`.
     address: Option<String>,
 }
-:: diesel_builders :: prelude :: fpk ! (Buildings :: university -> :: emi_deprecated_models_universities :: Universities);
-:: diesel_builders :: prelude :: fpk ! (Buildings :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);
-:: diesel_builders :: prelude :: fpk ! (Buildings :: user_updated -> :: emi_deprecated_models_directus_users :: directus_users);

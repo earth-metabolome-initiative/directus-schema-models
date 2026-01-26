@@ -20,6 +20,11 @@
 # [diesel (belongs_to (emi_deprecated_models_container_models :: ContainerModel , foreign_key = container_model))]
 # [diesel (belongs_to (emi_deprecated_models_universities :: University , foreign_key = location))]
 #[table_model(surrogate_key)]
+# [table_model (foreign_key ((container_model ,) , (:: emi_deprecated_models_container_models :: Container_Models :: id)))]
+# [table_model (foreign_key ((location ,) , (:: emi_deprecated_models_universities :: Universities :: id)))]
+# [table_model (foreign_key ((parent_container ,) , (Containers :: id)))]
+# [table_model (foreign_key ((user_created ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
+# [table_model (foreign_key ((user_updated ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
 # [diesel (table_name = Containers)]
 pub struct Container {
     /// Field representing the `id` column in table `Containers`.
@@ -70,8 +75,3 @@ pub struct Container {
 }
 ::diesel_builders::prelude::unique_index!(Containers::container_id);
 ::diesel_builders::prelude::unique_index!(Containers::old_id);
-:: diesel_builders :: prelude :: fpk ! (Containers :: container_model -> :: emi_deprecated_models_container_models :: Container_Models);
-:: diesel_builders :: prelude :: fpk ! (Containers :: location -> :: emi_deprecated_models_universities :: Universities);
-:: diesel_builders :: prelude :: fpk ! (Containers :: parent_container -> Containers);
-:: diesel_builders :: prelude :: fpk ! (Containers :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);
-:: diesel_builders :: prelude :: fpk ! (Containers :: user_updated -> :: emi_deprecated_models_directus_users :: directus_users);

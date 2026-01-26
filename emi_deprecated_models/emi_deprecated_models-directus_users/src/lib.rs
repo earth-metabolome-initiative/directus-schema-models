@@ -15,6 +15,7 @@
 )]
 /// Struct representing a row in the `directus_users` table.
 # [diesel (belongs_to (emi_deprecated_models_directus_roles :: DirectusRole , foreign_key = role))]
+# [table_model (foreign_key ((role ,) , (:: emi_deprecated_models_directus_roles :: directus_roles :: id)))]
 # [diesel (table_name = directus_users)]
 pub struct DirectusUser {
     /// Field representing the `id` column in table `directus_users`.
@@ -88,4 +89,3 @@ pub struct DirectusUser {
 ::diesel_builders::prelude::unique_index!(directus_users::email);
 ::diesel_builders::prelude::unique_index!(directus_users::external_identifier);
 ::diesel_builders::prelude::unique_index!(directus_users::token);
-:: diesel_builders :: prelude :: fpk ! (directus_users :: role -> :: emi_deprecated_models_directus_roles :: directus_roles);

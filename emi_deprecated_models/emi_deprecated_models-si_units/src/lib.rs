@@ -14,6 +14,8 @@
 )]
 /// Struct representing a row in the `SI_Units` table.
 #[table_model(surrogate_key)]
+# [table_model (foreign_key ((user_created ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
+# [table_model (foreign_key ((user_updated ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
 # [diesel (table_name = SI_Units)]
 pub struct SiUnit {
     /// Field representing the `id` column in table `SI_Units`.
@@ -44,5 +46,3 @@ pub struct SiUnit {
     multiplication_factor: f32,
 }
 ::diesel_builders::prelude::unique_index!(SI_Units::unit_name);
-:: diesel_builders :: prelude :: fpk ! (SI_Units :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);
-:: diesel_builders :: prelude :: fpk ! (SI_Units :: user_updated -> :: emi_deprecated_models_directus_users :: directus_users);

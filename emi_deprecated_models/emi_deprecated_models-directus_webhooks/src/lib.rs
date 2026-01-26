@@ -16,6 +16,7 @@
 /// Struct representing a row in the `directus_webhooks` table.
 # [diesel (belongs_to (emi_deprecated_models_directus_flows :: DirectusFlow , foreign_key = migrated_flow))]
 #[table_model(surrogate_key)]
+# [table_model (foreign_key ((migrated_flow ,) , (:: emi_deprecated_models_directus_flows :: directus_flows :: id)))]
 # [diesel (table_name = directus_webhooks)]
 pub struct DirectusWebhook {
     /// Field representing the `id` column in table `directus_webhooks`.
@@ -50,4 +51,3 @@ pub struct DirectusWebhook {
     # [diesel (sql_type = :: rosetta_uuid :: diesel_impls :: Uuid)]
     migrated_flow: Option<::rosetta_uuid::Uuid>,
 }
-:: diesel_builders :: prelude :: fpk ! (directus_webhooks :: migrated_flow -> :: emi_deprecated_models_directus_flows :: directus_flows);

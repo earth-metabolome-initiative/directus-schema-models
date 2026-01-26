@@ -56,7 +56,7 @@ pub fn main() {
     .name("emi_deprecated_models")
     .deny_list(deny_listed_tables)
     .sink_crate("emi_deprecated_models")
-    .member("builder")
+    .member(TomlDependency::new("builder").path("builder").unwrap())
     .generate_workspace_toml()
     .generate_rustfmt()
     .into();

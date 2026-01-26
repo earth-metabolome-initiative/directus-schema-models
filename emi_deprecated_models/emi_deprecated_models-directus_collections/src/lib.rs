@@ -14,6 +14,7 @@
 )]
 /// Struct representing a row in the `directus_collections` table.
 #[diesel(primary_key(collection))]
+# [table_model (foreign_key ((group ,) , (directus_collections :: collection)))]
 # [diesel (table_name = directus_collections)]
 pub struct DirectusCollection {
     /// Field representing the `collection` column in table
@@ -79,4 +80,3 @@ pub struct DirectusCollection {
     #[table_model(default = false)]
     versioning: bool,
 }
-:: diesel_builders :: prelude :: fpk ! (directus_collections :: group -> directus_collections);

@@ -13,6 +13,8 @@
 )]
 /// Struct representing a row in the `Field_Data` table.
 #[table_model(surrogate_key)]
+# [table_model (foreign_key ((user_created ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
+# [table_model (foreign_key ((user_updated ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
 # [diesel (table_name = Field_Data)]
 pub struct FieldDatum {
     /// Field representing the `id` column in table `Field_Data`.
@@ -115,5 +117,3 @@ pub struct FieldDatum {
     uuid_qfield: Option<String>,
 }
 ::diesel_builders::prelude::unique_index!(Field_Data::sample_id);
-:: diesel_builders :: prelude :: fpk ! (Field_Data :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);
-:: diesel_builders :: prelude :: fpk ! (Field_Data :: user_updated -> :: emi_deprecated_models_directus_users :: directus_users);

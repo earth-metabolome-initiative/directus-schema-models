@@ -19,6 +19,9 @@
 # [diesel (belongs_to (emi_deprecated_models_directus_collections :: DirectusCollection , foreign_key = collection))]
 # [diesel (belongs_to (emi_deprecated_models_directus_roles :: DirectusRole , foreign_key = role))]
 # [diesel (belongs_to (emi_deprecated_models_directus_users :: DirectusUser , foreign_key = user_created))]
+# [table_model (foreign_key ((collection ,) , (:: emi_deprecated_models_directus_collections :: directus_collections :: collection)))]
+# [table_model (foreign_key ((role ,) , (:: emi_deprecated_models_directus_roles :: directus_roles :: id)))]
+# [table_model (foreign_key ((user_created ,) , (:: emi_deprecated_models_directus_users :: directus_users :: id)))]
 # [diesel (table_name = directus_shares)]
 pub struct DirectusShare {
     /// Field representing the `id` column in table `directus_shares`.
@@ -54,6 +57,3 @@ pub struct DirectusShare {
     /// Field representing the `max_uses` column in table `directus_shares`.
     max_uses: Option<i32>,
 }
-:: diesel_builders :: prelude :: fpk ! (directus_shares :: collection -> :: emi_deprecated_models_directus_collections :: directus_collections);
-:: diesel_builders :: prelude :: fpk ! (directus_shares :: role -> :: emi_deprecated_models_directus_roles :: directus_roles);
-:: diesel_builders :: prelude :: fpk ! (directus_shares :: user_created -> :: emi_deprecated_models_directus_users :: directus_users);
