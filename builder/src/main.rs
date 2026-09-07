@@ -31,8 +31,8 @@ pub fn main() {
         })
     }).collect::<Vec<_>>();
 
-    // We expect that none of the deny listed tables have other tables depending on
-    // them.
+    // We expect that none of the deny listed tables have other tables depending
+    // on them.
     for table in &deny_listed_tables {
         if table.has_dependent_tables(&db) {
             eprintln!(
